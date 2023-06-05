@@ -11,7 +11,7 @@
         <!-- internal links -->
         <div class="line">
             <div data-value="CV" class="word styled">CV</div>
-            <div data-value="PROJECTS" class="word styled">Projects</div>
+            <div data-value="PORTFOLIO" class="word styled" @click="toPortfolio">Portfolio</div>
         </div>
         <!-- links -->
         <div class="line">
@@ -23,6 +23,8 @@
 
 <script setup>
 import { onMounted } from "vue";
+
+const toPortfolio = () => document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let interval = null;
@@ -38,7 +40,7 @@ onMounted(() => {
         .split("")
         .map((l, index) => {
             if(index < iteration) {
-            return e.target.dataset.value[index];
+              return e.target.dataset.value[index];
             }
         
             return letters[Math.floor(Math.random() * 26)]
@@ -54,7 +56,7 @@ onMounted(() => {
   })
 
   els.forEach(el => el.onmouseleave = e => {
-    e.target.innerText =  e.target.dataset.value[index];
+    e.target.innerText =  e.target.dataset.value;
   })
 })
 
@@ -68,7 +70,7 @@ onMounted(() => {
 
 .word {
   font-family: 'Rubik Mono One', sans-serif;
-  font-size: clamp(1rem, 5vw, 6rem);
+  font-size: clamp(1.8rem, 5vw, 6rem);
   color: white;
   text-transform: uppercase;
   line-height: 1em;

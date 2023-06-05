@@ -1,13 +1,13 @@
 <template>
   <v-img cover height="100vh" src="https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7" gradient="90deg, black 0%, transparent 60%">
-    <v-container class="h-screen restrict-w d-flex align-center justify-center justify-md-space-between">
+    <v-container class="h-screen restrict-w d-flex flex-column flex-md-row align-center justify-center justify-md-space-between">
       
-      <hero-text></hero-text>
+      <hero-text class=""></hero-text>
       
-      <v-avatar size="200" class="d-none d-md-block">
+      <v-avatar size="200" class="ml-0 ml-md-8 mt-8 mt-md-0">
         <v-img
           cover
-          src="https://images.unsplash.com/photo-1519575706483-221027bfbb31"
+          src="@/assets/zakdowsett.png"
           alt="Zak"
         ></v-img>
       </v-avatar>
@@ -17,29 +17,27 @@
 
   <!-- projects -->
   <div class="grid">
-    <div class="title">Projects</div>
+    <div class="title" id="portfolio">Portfolio</div>
 
-    <v-img cover src="https://images.unsplash.com/photo-1580086319619-3ed498161c77">
-      <div class="center-grid fit-bg">
-        <h3 class="text-h1 pa-2 fit-logo">1FIT</h3>
-      </div>
-      
-    </v-img>
-    <v-img cover src="https://images.unsplash.com/photo-1481437156560-3205f6a55735">
-      <div class="center-grid bs-bg">
-      <h3 class="text-h1 pa-2 bs-logo">Blue Square</h3>
-      </div>
-    </v-img>
+    <router-link to="1fit">
+      <v-img cover src="https://images.unsplash.com/photo-1580086319619-3ed498161c77">
+        <div class="center-grid fit-bg">
+          <h3 class="text-h1 pa-2 fit-logo">1FIT</h3>
+        </div>
+      </v-img>
+    </router-link>
+    <router-link to="bluesquare">
+      <v-img cover src="https://images.unsplash.com/photo-1481437156560-3205f6a55735">
+        <div class="center-grid bs-bg">
+          <h3 class="text-h1 pa-2 bs-logo">Blue Square</h3>
+        </div>
+      </v-img>
+    </router-link>
   </div>
-
-  <one-fit />
-  <blue-square />
 </template>
 
 <script setup>
 import HeroText from "@/components/HeroText.vue";
-import OneFit from "@/components/projects/1Fit.vue"
-import BlueSquare from "@/components/projects/Bluesquare.vue"
 </script>
 
 <style lang="scss" scoped>
@@ -52,12 +50,16 @@ import BlueSquare from "@/components/projects/Bluesquare.vue"
   .v-img {
     aspect-ratio: 1;
   }
+  a {
+    text-decoration: none;
+  }
 }
 
 .center-grid {
   display: grid;
   height: 100%;
   h3 {
+    text-align: center;
     place-self: center;
   }
 }
