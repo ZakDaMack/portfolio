@@ -1,25 +1,32 @@
 <template>
     <v-container fluid :style="cssProps" class="bg-grad">
-        <div class="d-flex pa-4">
+        <div class="d-flex" :class="{'mb-8': !mobile}">
+            <v-btn
+                class="abs-btn pt-8"
+                prepend-icon="fas fa-chevron-left"
+                color="white" size="large"
+                to="/" variant="plain"
+            >{{ mobile ? '' : 'Back' }}</v-btn>
             <v-spacer></v-spacer>
             <h2 class="text-h1 logo text-right">{{ props.name }}</h2>
         </div>
-        <div class="pa-8 d-flex flex-column flex-md-row">
-            <slot></slot>
-        </div>
+        <slot></slot>
         <div class="text-center">
-            <v-btn size="x-large" class="rounded-xl" href="https://bluesquare.uk.com" target="_blank">Visit site</v-btn>
+            <v-btn size="x-large" class="rounded-xl" :href="props.siteUrl" target="_blank">Visit site</v-btn>
         </div>
     </v-container>
 </template>
 
 <script setup>
 import { defineProps, computed } from 'vue';
+import { useDisplay } from 'vuetify'
 
+const { mobile } = useDisplay()
 const props = defineProps({
     name: String,
     primary: String,
-    secondary: String
+    secondary: String,
+    siteUrl: String
 });
 
 const cssProps = computed(() => ({
@@ -41,6 +48,10 @@ const cssProps = computed(() => ({
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.abs-btn {
+    position: absolute;
 }
 
 :deep() article p {

@@ -4,13 +4,15 @@
       
       <hero-text class=""></hero-text>
       
-      <v-avatar size="200" class="ml-0 ml-md-8 mt-8 mt-md-0">
-        <v-img
-          cover
-          src="@/assets/zakdowsett.png"
-          alt="Zak"
-        ></v-img>
-      </v-avatar>
+      <div class="w-100 d-flex justify-center">
+        <v-avatar size="200" class="ml-0 ml-md-8 mt-8 mt-md-0">
+          <v-img
+            cover
+            src="@/assets/zakdowsett.png"
+            alt="Zak"
+          ></v-img>
+        </v-avatar>
+      </div>
       
     </v-container>
   </v-img>
