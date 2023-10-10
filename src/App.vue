@@ -9,9 +9,12 @@
     </v-banner-text>
   </v-banner>
   <router-view />
+  <quick-links />
 </template>
 
 <script setup>
   import { ref } from 'vue';
+  import QuickLinks from './components/QuickLinks.vue';
+  
   const open = ref(true);
 </script>

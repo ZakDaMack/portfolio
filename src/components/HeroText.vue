@@ -10,7 +10,7 @@
         </div>
         <!-- internal links -->
         <div class="line">
-            <div data-value="CV" class="word styled">CV</div>
+            <a data-value="CV" class="word styled" href="/resume.pdf" target="_blank">CV</a>
             <div data-value="PORTFOLIO" class="word styled" @click="toPortfolio">Portfolio</div>
         </div>
         <!-- links -->
@@ -56,6 +56,7 @@ onMounted(() => {
   })
 
   els.forEach(el => el.onmouseleave = e => {
+    console.log("mouseleave");
     e.target.innerText =  e.target.dataset.value;
   })
 })
