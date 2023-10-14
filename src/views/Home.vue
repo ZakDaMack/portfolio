@@ -8,16 +8,21 @@
       
       <div class="w-100 d-flex justify-center">
         <v-avatar size="250" class="ml-0 ml-md-8 mt-8 mt-md-0">
-          <v-img
-            cover
-            src="@/assets/zakdowsett.png"
-            alt="Zak"
-          ></v-img>
+          <v-img cover alt="Zak"
+            src="@/assets/zakdowsett.png">
+            <template #placeholder>
+              <v-skeleton-loader type="avatar" />
+            </template>
+          </v-img>
         </v-avatar>
       </div>
       
     </v-container>
   </v-img>
+
+  <about />
+
+  <portfolio />
 
   <!-- projects -->
   <div class="grid">
@@ -59,10 +64,22 @@
 </template>
 
 <script setup>
+import About from "@/components/About.vue";
+import Portfolio from "@/components/Portfolio.vue";
 import HeroText from "@/components/HeroText.vue";
+
+import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
 </script>
 
 <style lang="scss" scoped>
+.v-avatar :deep(.v-skeleton-loader__avatar) {
+  margin: 0;
+  max-height: unset;
+  max-width: unset;
+  height: 250px;
+  width: 250px
+}
+
 .grid {
   position: relative;
   display: grid;
@@ -131,13 +148,4 @@ import HeroText from "@/components/HeroText.vue";
 .transalis-bg {
   background: radial-gradient(circle at bottom left, rgba(#00AAE0,0.5), rgba(#2C3538,0.8) 50%);
 }
-
-[class$="-bg"]:hover {
-  [class$="-logo"] {
-    font-size: 7rem !important;
-    transition: font-size 0.35s linear;
-  }
-}
-
-
 </style>
