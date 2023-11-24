@@ -5,56 +5,89 @@
                 <h2 class="text-h2 pb-4">Portfolio</h2>
             </div>
 
-            <v-row>
-                <v-col cols="4">
-                    <SplashImage image-url="https://images.unsplash.com/photo-1580086319619-3ed498161c77" 
-                        name="1FIT" primary="#2CF5B8" secondary="#1D212D" />
-                </v-col>
-                <v-col>
-                    <p class="text-body">
-                        Non repellat nihil perspiciatis doloribus dolores. Earum quis blanditiis quibusdam. Possimus hic saepe id. Iure in ut rem.
-                        Magnam aut vel molestiae.
-                    </p>
-                    <p class="text-body">
-                        Sit blanditiis magni repellendus nihil consequatur. Nihil nemo corporis cumque consectetur ab est nulla necessitatibus. 
-                        Nemo accusantium expedita soluta tempore et voluptas eum.
-                    </p>
-                    <v-btn class="ml-auto" to="/1fit">View more</v-btn>
-                </v-col>
-            </v-row>
+            <PortfolioItem
+                name="1FIT"
+                logo="/1fit_logo.png"
+                image="https://images.unsplash.com/photo-1577992805669-c80be3285f36"
+                :skills="[
+                    'Laravel', 
+                    'Vue',
+                    'AWS',
+                    'ECS',
+                    'MongoDB',
+                    'Flutter'
+                ]"
+            >
+                <p class="text-body">
+                    Initially started out as a freelancer before becoming a full-time Senior Software Engineer at 1FIT; a tech startup in the
+                    fitness industry looking to modernise how coaches interact with and keep track of their clientelle.
+                </p>
+                <p class="text-body">
+                    
+                </p>
+            </PortfolioItem>
+
+            <PortfolioItem
+                name="Blue Square"
+                logo="/bluesquare_logo.png"
+                image="/bluesquare.jpg"
+                :skills="[
+                    'Laravel', 
+                    'Vue',
+                    'AWS',
+                    'ECS',
+                    'MongoDB',
+                    'Flutter'
+                ]"
+            >
+                <p class="text-body">
+                    twatawtwatat
+                    Non repellat nihil perspiciatis doloribus dolores. Earum quis blanditiis quibusdam. Possimus hic saepe id. Iure in ut rem.
+                    Magnam aut vel molestiae.
+                </p>
+                <p class="text-body">
+                    Sit blanditiis magni repellendus nihil consequatur. Nihil nemo corporis cumque consectetur ab est nulla necessitatibus. 
+                    Nemo accusantium expedita soluta tempore et voluptas eum.
+                </p>
+            </PortfolioItem>
 
             
-            <div class="d-grid">
-                <SplashImage image-url="https://images.unsplash.com/photo-1580086319619-3ed498161c77" 
-                    name="1FIT" primary="#2CF5B8" secondary="#1D212D" />
-
-                <!-- details -->
-                <div class="my-auto w-75">
-                    <h3 class="text-h4 pb-2">1FIT</h3>
-                    <p class="text-body">
-                        Non repellat nihil perspiciatis doloribus dolores. Earum quis blanditiis quibusdam. Possimus hic saepe id. Iure in ut rem.
-                        Magnam aut vel molestiae.
-                    </p>
-                    <p class="text-body">
-                        Sit blanditiis magni repellendus nihil consequatur. Nihil nemo corporis cumque consectetur ab est nulla necessitatibus. 
-                        Nemo accusantium expedita soluta tempore et voluptas eum.
-                    </p>
-                    <div class="d-flex justify-end">
-                        <v-btn class="ml-auto" to="/1fit">View more</v-btn>
-                    </div>
-                </div>
-            </div>
+            <PortfolioItem
+                name="Transalis"
+                logo="/transalis_logo.png"
+                image="https://images.unsplash.com/photo-1601897690942-bcacbad33e55"
+                :skills="[
+                    'Laravel', 
+                    'Vue',
+                    'AWS',
+                    'ECS',
+                    'MongoDB',
+                    'Flutter'
+                ]"
+            >
+                <p class="text-body">
+                    twatawtwatat
+                    Non repellat nihil perspiciatis doloribus dolores. Earum quis blanditiis quibusdam. Possimus hic saepe id. Iure in ut rem.
+                    Magnam aut vel molestiae.
+                </p>
+                <p class="text-body">
+                    Sit blanditiis magni repellendus nihil consequatur. Nihil nemo corporis cumque consectetur ab est nulla necessitatibus. 
+                    Nemo accusantium expedita soluta tempore et voluptas eum.
+                </p>
+            </PortfolioItem>
         </v-container>
     </article>
 </template>
 
 <script setup>
-import SplashImage from './SplashImage.vue';
+import PortfolioItem from './PortfolioItem.vue';
 </script>
 
 <style lang="scss" scoped>
 .portfolio__container {
     min-height: 100vh;
+    padding: 64px 0;
+    background-color: rgba(211, 211, 211, 0.2);
 }
 
 .text-body {
