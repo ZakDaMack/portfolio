@@ -12,10 +12,11 @@
                     <h3 class="text-h4 pb-2">Who Am I?</h3>
                     <p class="text-body">
                         Quick learning and adaptable Full Stack Software Developer with 5
-years of professional experience. Achieved a 1st in (BSc) Computer
-Science from the University of Portsmouth. Have a huge interest in the
-application of blockchain and cyber security. Recently involved in
-leading a team of 4 developers and freelancing in my free time.
+                        years of professional experience. Achieved a 1st in (BSc) Computer
+                        Science from the University of Portsmouth. Have a huge interest in the
+                        application of blockchain and cyber security. Recently involved in
+                        leading a team of 4 developers and freelancing in my free time.
+                    </p><p class="text-body">  
                     I'm a Frontend Web Developer building the Front-end of Websites and Web Applications that leads to the success of the overall product. Check out some of my work in the Projects section.
                     </p><p class="text-body">
                     I also like sharing content related to the stuff that I have learned over the years in Web Development so it can help other people of the Dev Community. Feel free to Connect or Follow me on my Linkedin where I post useful content related to Web Development and Programming
@@ -51,7 +52,8 @@ const skills = [
     '.NET',
     'AWS',
     'Atlassian',
-    'Docker'
+    'Docker',
+    'Microservices '
 ];
 </script>
 
