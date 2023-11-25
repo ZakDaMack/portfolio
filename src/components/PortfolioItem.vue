@@ -1,13 +1,13 @@
 <template>
     <v-row class="mb-8">
-        <v-col cols="4">
+        <v-col cols="12" md="4">
             <v-hover v-slot="{ isHovering, props }">
                 <a :href="link">
                     <v-card  height="250" rounded="lg" :elevation="link && isHovering ? 24 :16"
                         v-bind="props" :href="link" target="_blank"
                     >
                         <v-img cover height="100%" :src="image" :alt="name" 
-                        :lazy-src="`${image}?auto=format&fit=crop&w=100&q=80`"
+                            :lazy-src="`${image}?auto=format&fit=crop&w=100&q=80`"
                         >
                             <img class="central_logo" :src="logo" alt="">
                         </v-img>

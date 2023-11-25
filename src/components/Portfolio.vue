@@ -1,6 +1,6 @@
 <template>
-    <article id="portfolio" class="portfolio__container py-24">
-        <v-container>
+    <article id="portfolio" class="portfolio__container">
+        <v-container fluid>
             <div class="text-center pb-12">
                 <h2 class="text-h2 pb-4">Portfolio</h2>
             </div>
@@ -114,11 +114,7 @@
                     which specialised in providing a range of solutions, services and software to clients such as land agents and councils. 
                 </p><p class="text-body">
                     I was responsible for the company's online map shop with any new features that needed development or bugs that needed
-                    fixing.  and  worked as a Junior Software Developer for Pear Technology; an Ordnance Survey partner
-                    which specialised in providing a range of solutions, services and software to clients such as land agents and councils. 
-                </p><p class="text-body">
-                    During my placement year, I worked as a Junior Software Developer for Pear Technology; an Ordnance Survey partner
-                    which specialised in providing a range of solutions, services and software to clients such as land agents and councils. 
+                    fixing. I also assisted in the development of PearGIS, a greenfield project utilizng a powerful new map engine in WPF. 
                 </p>
             </PortfolioItem>
 
@@ -133,8 +129,18 @@ import PortfolioItem from './PortfolioItem.vue';
 <style lang="scss" scoped>
 .portfolio__container {
     min-height: 100vh;
-    padding: 64px 0;
+    padding: 64px;
     background-color: rgba(211, 211, 211, 0.2);
+    .v-container {
+        max-width: 100em;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .portfolio__container {
+        padding: 64px 0;
+    }
 }
 
 .text-body {
