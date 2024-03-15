@@ -1,6 +1,7 @@
 <template>
   <v-img cover height="100vh" lazy-src="https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7?auto=format&fit=crop&w=400&q=80"
     src="https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7" gradient="90deg, black 0%, transparent 60%"
+    style="background: linear-gradient(#52304188, #dc8a4f88);"
   >
     <v-container class="h-screen restrict-w d-flex flex-column flex-md-row align-center justify-center justify-md-space-between">
       

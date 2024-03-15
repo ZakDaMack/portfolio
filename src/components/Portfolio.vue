@@ -26,7 +26,7 @@
                 </p><p class="text-body">
                     During my freelance period, I was involved in all aspects of the devlopment life cycle, including the development
                     and design of the API server and databases, using a mix of both SQL and NoSQL databases. I then went on to assist
-                    the consultant to design and build the infrastrcuture, utilizing Amazon's Elastic Container Service (ECS) to
+                    the consultant to design and build the infrastructure, utilizing Amazon's Elastic Container Service (ECS) to
                     ensure high availability and scalability. 
                 </p><p class="text-body">
                     More recently, I have been learning Flutter to create a native mobile app for both Android and iOS as well as
