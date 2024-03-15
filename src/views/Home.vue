@@ -22,11 +22,14 @@
 
   <about />
   <portfolio />
+  <blog />
+
 </template>
 
 <script setup>
 import About from "@/components/About.vue";
 import Portfolio from "@/components/Portfolio.vue";
+import Blog from "@/components/Blog.vue";
 import HeroText from "@/components/HeroText.vue";
 
 import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
