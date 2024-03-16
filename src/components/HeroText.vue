@@ -16,7 +16,7 @@
         <!-- links -->
         <div class="line">
             <a data-value="LINKEDIN" class="word styled" href="https://linkedin.com/in/zak-dowsett-4a7455131/" target="_blank">LinkedIn</a>
-            <a data-value="EMAIL" class="word styled" href="mailto:z.dowsett@outlook.com" target="_blank">Email</a>
+            <a data-value="BLOG" class="word styled" @click="toBlog">Blog</a>
         </div>
     </div>
 </template>
@@ -25,6 +25,7 @@
 import { onMounted } from "vue";
 
 const toPortfolio = () => document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
+const toBlog = () => document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let interval = null;
@@ -77,7 +78,7 @@ onMounted(() => {
   line-height: 1em;
   transition: opacity 300ms ease; 
 }
-.word:not(:last-child) {
+.word {
   margin-right: 1em;
 }
 

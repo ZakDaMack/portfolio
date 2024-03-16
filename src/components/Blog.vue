@@ -3,7 +3,15 @@
         <v-container fluid>
             <div class="text-center pb-12">
                 <h2 class="text-h2 pb-4">Blog</h2>
+                <p class="blog__intro text-center text-body">
+                    Recently, I've started homelabbing to improve my DevOps and
+                    infrastructure skillset. Going forward, I am to write about what I've learnt
+                    for future reference and hopefully to help others as well. View my latest posts 
+                    below, or go to 
+                </p>
+                <a class="blog__intro text-center text-body" href="https://blog.zakdowsett.co.uk/">https://blog.zakdowsett.co.uk/</a>
             </div>
+
 
             <v-row>
                 <v-col v-for="item in posts" cols="12" md="4">
@@ -26,7 +34,6 @@ import { ref } from 'vue';
 import BlogItem from './BlogItem.vue';
 
 const posts = ref([]);
-
 fetch('https://blog.zakdowsett.co.uk/ghost/api/content/posts/?key=44a65805ff949082d0ff581ab1&include=tags&limit=3')
     .then(res => res.json())
     .then(data => posts.value = data.posts)
@@ -47,6 +54,11 @@ fetch('https://blog.zakdowsett.co.uk/ghost/api/content/posts/?key=44a65805ff9490
     .blog__container {
         padding: 64px 0;
     }
+}
+
+.blog__intro {
+    max-width: 40em;
+    margin: 0 auto;
 }
 
 .text-body {

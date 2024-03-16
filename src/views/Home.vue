@@ -5,12 +5,11 @@
   >
     <v-container class="h-screen restrict-w d-flex flex-column flex-md-row align-center justify-center justify-md-space-between">
       
-      <hero-text class=""></hero-text>
+      <div class="d-flex flex-column flex-md-row  align-center justify-center mx-auto">
+        <hero-text class=""></hero-text>
       
-      <div class="w-100 d-flex justify-center">
-        <v-avatar size="250" class="ml-0 ml-md-8 mt-8 mt-md-0">
-          <v-img cover alt="Zak"
-            src="@/assets/zakdowsett.png">
+        <v-avatar size="250" class="ml-0 ml-md-8 mt-8 mt-md-0 elevation-16">
+          <v-img cover alt="Zak" src="@/assets/zakdowsett.png">
             <template #placeholder>
               <v-skeleton-loader type="avatar" />
             </template>
