@@ -57,7 +57,9 @@ const skills = [
     'AWS',
     'Atlassian',
     'Docker',
-    'Microservices '
+    'Microservices',
+    'Golang',
+    'React'
 ];
 </script>
 

@@ -8,11 +8,16 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+@use './fonts';
+// @use 'vuetify/settings' with ( 
+//     $body-font-family: 'Inter', 
+//     $title-font: 'Inter'
+// );
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
 
 main {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 

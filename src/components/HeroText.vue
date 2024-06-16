@@ -53,7 +53,7 @@ onMounted(() => {
         }
         
         iteration += 1 / 3;
-    }, 30);
+    }, 10);
   })
 
   els.forEach(el => el.onmouseleave = e => {

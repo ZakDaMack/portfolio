@@ -29,8 +29,33 @@
                     the consultant to design and build the infrastructure, utilizing Amazon's Elastic Container Service (ECS) to
                     ensure high availability and scalability. 
                 </p><p class="text-body">
-                    More recently, I have been learning Flutter to create a native mobile app for both Android and iOS as well as
-                    using Mobile Development tools such as Codemagic to help automate deployment to the App Stores. 
+                    I have also worked on a client app using Flutter to create a native mobile app for both Android and iOS as well as
+                    using Mobile Development tools such as Codemagic to help automate deployment to the App Stores.
+                </p>
+            </PortfolioItem>
+
+            <PortfolioItem
+                name="FuelFinder"
+                logo="/fuelfinder_logo.png"
+                link="https://fuelfinder.zakdowsett.co.uk"
+                image="https://images.unsplash.com/photo-1536822919364-de5612490f1f"
+                :skills="[
+                    'React', 
+                    'Golang',
+                    'gRPC',
+                    'Mongo',
+                    'Microservices',
+                    'Docker'
+                ]"
+            >
+                <p class="text-body">
+                    FuelFinder is a web app designed to show the cheapest fuel in your area, provided by gov fuel price data. It regularly
+                    polls and collects data published on the gov website to show the cheapest fuel stations in your area. 
+                </p><p class="text-body">
+                    The front end has been developed with a mobile-first approach in React, using Redux, with the microservices created using
+                    Go and containerized in Docker. The microservices communicate using gRPC, with a small REST gateway to communicate with 
+                    the frontend. Any rate limiting is handled by the reverse proxy. The web scraper polls for new data every 15 minutes and
+                    indexes the station data in Mongo.
                 </p>
             </PortfolioItem>
 
