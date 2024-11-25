@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Rubik Mono One';
+  src: local('Rubik Mono One'), url(../assets/fonts/RubikMonoOne-Regular.ttf), format('truetype');
+}
+
+#hero-text:has(.styled:hover) .word:not(.styled:hover) {
+  opacity: 0.3;
+}
+  
+.word {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 6rem);
+  color: white;
+  text-transform: uppercase;
+  line-height: 1em;
+  transition: opacity 300ms ease; 
+}
+
+.word:not(:last-child) {
+  margin-right: 1em;
+}
+
+.word:hover {
+  color: white;
+}
+
+.styled {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+}
