@@ -1,20 +1,20 @@
 import { FC } from "react"
-import PortfolioItem from "../../components/portfolio_item";
+import PortfolioItem from "@/components/portfolio_item";
 
-import OneFitLogo from '../../assets/1fit_logo.png'
-import OneFitBG from '../../assets/gym.jpg'
+import OneFitLogo from '@/assets/1fit_logo.png'
+import OneFitBG from '@/assets/gym.jpg'
 
-import FuelfinderLogo from '../../assets/fuelfinder_logo.png'
-import FuelFinderBG from '../../assets/fuel.jpg'
+import FuelfinderLogo from '@/assets/fuelfinder_logo.png'
+import FuelFinderBG from '@/assets/fuel.jpg'
 
-import BluesquareLogo from '../../assets/bluesquare_logo.png'
-import BluesquareBG from '../../assets/bluesquare.jpg'
+import BluesquareLogo from '@/assets/bluesquare_logo.png'
+import BluesquareBG from '@/assets/bluesquare.jpg'
 
-import TransalisLogo from '../../assets/transalis_logo.png'
-import TransalisBG from '../../assets/containers.jpg'
+import TransalisLogo from '@/assets/transalis_logo.png'
+import TransalisBG from '@/assets/containers.jpg'
 
-import PearLogo from '../../assets/pt_logo.png'
-import PearBG from '../../assets/map.jpg'
+import PearLogo from '@/assets/pt_logo.png'
+import PearBG from '@/assets/map.jpg'
 
 const Portfolio: FC = () => {
     return (

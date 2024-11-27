@@ -1,7 +1,7 @@
 import { FC } from "react"
 
-import Zak from '../../assets/zakdowsett.png'
-import HeroText from "../../components/hero_text";
+import Zak from '@/assets/zakdowsett.png'
+import HeroText from "@/components/hero_text";
 
 const Splash: FC = () => (
   <section className="h-screen grid bg-backdrop bg-cover bg-center">

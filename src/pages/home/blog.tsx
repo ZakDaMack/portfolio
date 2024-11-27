@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react"
-import BlogItem from "../../components/blog_item"
+import BlogItem from "@/components/blog_item"
 
 const Blog: FC = () => {
     const [posts, setPosts] = useState<any[]>([])
