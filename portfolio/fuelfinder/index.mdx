@@ -1,0 +1,15 @@
+---
+name: "FuelFinder"
+link: "https://fuelfinder.zakdowsett.co.uk"
+logo: ./fuelfinder_logo.png
+backdrop: ./fuel.jpg
+leave_date: "2024-03-12"
+skills: ['React', 'Golang', 'gRPC', 'Mongo', 'Microservices', 'Docker']
+---
+FuelFinder is a web app designed to show the cheapest fuel in your area, provided by gov fuel price data. It regularly
+polls and collects data published on the gov website to show the cheapest fuel stations in your area. 
+
+The front end has been developed with a mobile-first approach in React, using Redux, with the microservices created using
+Go and containerized in Docker. The microservices communicate using gRPC, with a small REST gateway to communicate with 
+the frontend. Any rate limiting is handled by the reverse proxy. The web scraper polls for new data every 15 minutes and
+indexes the station data in Mongo.

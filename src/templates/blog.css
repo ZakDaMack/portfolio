@@ -1,0 +1,24 @@
+#article__content pre {
+    @apply bg-slate-200;
+    @apply p-3;
+    @apply text-sm;
+    @apply rounded;
+    overflow-x: auto;
+}
+
+#article__content strong {
+    @apply font-bold;
+    @apply text-neutral-700;
+}
+
+#article__content img {
+    @apply rounded-lg;
+}
+
+#article__content span + em {
+    @apply block;
+    @apply italic;
+    @apply text-sm;
+    @apply text-center;
+    @apply text-neutral-700;
+}
