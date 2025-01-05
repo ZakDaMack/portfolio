@@ -37,6 +37,7 @@
     "gatsby-remark-images": "^7.14.0",
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
+    "jspdf": "^2.5.2",
     "lucide-react": "^0.464.0",
     "postcss": "^8.4.49",
     "react": "^18.2.0",

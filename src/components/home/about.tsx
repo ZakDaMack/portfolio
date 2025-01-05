@@ -32,7 +32,7 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="flex gap-10 flex-col md:flex-row">
-                    <div className="flex-1 text-justify space-y-2">
+                    <div className="flex-1 text-justify space-y-4">
                         <h3 className="text-3xl">Who Am I?</h3>
                         <p className="text-xl">
                             I am a quick learning and adaptable <b>Full-Stack Software Developer</b> with over 5 years of professional experience.

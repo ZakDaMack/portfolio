@@ -47,7 +47,9 @@ const PortfolioItem: React.FC<ItemProps> = ({
                     <FontAwesomeIcon className="mb-4 text-sm" icon={faArrowUpRightFromSquare} />
                 </a>
                 {/* <div className="text-xl"> */}
-                    <ReactMarkdown>{content}</ReactMarkdown>
+                    <ReactMarkdown>
+                        {content}
+                    </ReactMarkdown>
                 {/* </div> */}
                 <div className="flex flex-wrap">
                     {skills?.map(skill => (
