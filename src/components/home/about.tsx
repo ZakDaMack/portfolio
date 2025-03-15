@@ -20,12 +20,12 @@ const About: React.FC = () => {
     ];
     
     return (
-        <section id="about" className="py-16 px-3 md:px-24 min-h-[90vh]">
+        <section id="about" className="py-16 px-4 md:px-24 min-h-[90vh]">
             <div className="container max-w-[80em] mx-auto">
 
                 <div className="text-center pb-12">
                     <h2 className="text-6xl pb-4 font-light">About Me</h2>
-                    <p className="text-center text-xl">
+                    <p className="text-center text-xl max-w-3xl mx-auto">
                         I'm a full stack developer with over 5 years of professional experience.
                         Find out more about me, such as my skills and history, below.
                     </p>
@@ -55,7 +55,7 @@ const About: React.FC = () => {
                             {skills.map(skill => (
                                 <div
                                     key={skill}
-                                    className="d-inline-block px-4 md:px-8 py-2 md:py-4 bg-neutral-200 text-black rounded"
+                                    className="d-inline-block px-4 md:px-8 py-2 md:py-4 bg-nord-4 text-nord-1 rounded"
                                 >{skill}</div>
                             ))}
                         </div>

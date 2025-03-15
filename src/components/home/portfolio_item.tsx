@@ -42,7 +42,7 @@ const PortfolioItem: React.FC<ItemProps> = ({
                 </div>
             </a>
             <div className="text-justify col-span-12 md:col-span-8 space-y-4 text-xl">
-                <a href={link} className="space-x-2 cursor-pointer hover:underline text-black dark:text-white">
+                <a href={link} className="space-x-2 cursor-pointer hover:underline text-foreground hover:text-foreground">
                     <h3 className="text-3xl inline">{name}</h3>
                     <FontAwesomeIcon className="mb-4 text-sm" icon={faArrowUpRightFromSquare} />
                 </a>
@@ -55,7 +55,7 @@ const PortfolioItem: React.FC<ItemProps> = ({
                     {skills?.map(skill => (
                         <div
                             key={skill}
-                            className="d-inline-block mr-2 mb-2 p-2 bg-neutral-200 text-black text-sm rounded"
+                            className="d-inline-block mr-2 mb-2 p-2 bg-nord-4 text-nord-1 text-sm rounded"
                         >{skill}</div>
                     ))}
                 </div>

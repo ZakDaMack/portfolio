@@ -6,10 +6,12 @@ import About from "../components/home/about"
 import Portfolio from "../components/home/portfolio"
 import Blog from "../components/home/blog"
 import QuickLinks from "../components/home/quick_links"
+import ThemeToggler from "@/components/home/theme_toggler"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main className="w-screen max-w-full">
+      <ThemeToggler />
       <Splash />
       <About />
       <Portfolio />

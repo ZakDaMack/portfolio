@@ -14,7 +14,7 @@ const BlogPostPage = ({ data, children }) => {
     return (
       <BlogLayout>
           <article>
-            <section className='relative bg-slate-800 text-white pt-20'>
+            <section className='relative bg-nord-1 text-nord-6 pt-20'>
               <div className='max-w-screen-md mx-auto px-8 space-y-4'>
                 <p>
                   {blog?.frontmatter?.tags?.map((tag) => (
@@ -35,16 +35,16 @@ const BlogPostPage = ({ data, children }) => {
                   alt={blog?.frontmatter?.hero_attr}
                 />
               </div>
-              <div className='absolute bottom-0 bg-white w-full h-20' />
+              <div className='absolute bottom-0 bg-background w-full h-20' />
             </section>
             <section className='max-w-screen-md mx-auto px-8 pb-2 pt-1 space-y-2'>
               <p className='text-sm'>{blog?.frontmatter?.hero_attr}</p>
               <p>{blog?.frontmatter?.date}</p>
-              <div className='border-b-2 pt-4 border-slate-800' />
+              <div className='border-b-2 pt-4 border-nord-2' />
             </section>
             <section 
               id='article__content' 
-              className='text-justify space-y-4 px-8 pt-4 pb-20 max-w-screen-md mx-auto'
+              className='text-justify space-y-6 px-8 pt-4 pb-20 max-w-screen-md mx-auto'
             >
               <MDXProvider>
                 {children}

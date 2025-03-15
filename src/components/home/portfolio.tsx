@@ -34,7 +34,7 @@ const Portfolio: React.FC = () => {
     `);    
 
     return (
-        <section id="portfolio" className="py-16 px-3 md:px-24 min-h-[90vh] bg-gray-100 dark:bg-gray-800">
+        <section id="portfolio" className="py-16 px-4 md:px-24 min-h-[90vh] bg-nord-5 dark:bg-nord-1">
             <div className="container max-w-[80em] mx-auto">
 
                 <div className="text-center pb-12">

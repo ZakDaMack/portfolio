@@ -50,7 +50,7 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
     const firstLatest = data.allMdx.nodes[0]!;
     return (
         <>
-            <header className='fixed z-10 border-b w-screen bg-slate-800 text-white shadow-lg'>
+            <header className='fixed z-10 border-b border-light-gray w-screen bg-nord-1 text-white shadow-lg'>
                 <div className='mx-auto container p-2 flex items-center space-x-2'>
                     <Link to='/'>
                         <StaticImage 
@@ -70,7 +70,7 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
                     <NavigationMenu className='px-4 hidden md:block'>
                         <NavigationMenuList className='grow w-full'>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger className='bg-transparent hover:bg-slate-600'>
+                                <NavigationMenuTrigger className='bg-transparent hover:bg-nord-2'>
                                     Latest
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>

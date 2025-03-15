@@ -10,7 +10,7 @@ const BlogPage: React.FC<PageProps<Queries.AllBlogsQuery>> = ({ data }) => {
 
     return (
         <BlogLayout>
-          <section className='bg-slate-800 text-white'>
+          <section className='bg-nord-1 text-white'>
               <div className='container mx-auto px-4 py-20'>
                   <h2 className='text-5xl'>Featured</h2>
                   <div className='grid lg:grid-cols-2 gap-x-8'>

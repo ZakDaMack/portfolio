@@ -34,12 +34,12 @@ const Blog: React.FC = () => {
 
     const posts = data.allMdx.nodes;
     return (
-        <section id="blog" className="py-16 px-3 md:px-24  min-h-[90vh]">
+        <section id="blog" className="py-16 px-4 md:px-24 min-h-[90vh]">
             <div className="container max-w-[80em] mx-auto">
 
                 <div className="text-center pb-12">
                     <h2 className="text-6xl pb-4 font-light">Blog</h2>
-                    <p className="text-center text-xl">
+                    <p className="text-center text-xl max-w-3xl mx-auto">
                         Recently, I've started homelabbing to improve my DevOps and infrastructure skillset.
                         Going forward, I am to write about what I've learnt for future reference and hopefully to help others as well.
                         View my latest posts below, or go to

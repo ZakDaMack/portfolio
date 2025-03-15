@@ -17,11 +17,11 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)',
   			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				DEFAULT: 'var(--card)',
+  				foreground: 'var(--card-foreground)'
   			},
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
@@ -56,7 +56,25 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			nord: {
+        		'0': 'var(--nord0)',
+				'1': 'var(--nord1)',
+				'2': 'var(--nord2)',
+				'3': 'var(--nord3)',
+				'4': 'var(--nord4)',
+				'5': 'var(--nord5)',
+				'6': 'var(--nord6)',
+				'7': 'var(--nord7)',
+				'8': 'var(--nord8)',
+				'9': 'var(--nord9)',
+				'10': 'var(--nord10)',
+				'11': 'var(--nord11)',
+				'12': 'var(--nord12)',
+				'13': 'var(--nord13)',
+				'14': 'var(--nord14)',
+				'15': 'var(--nord15)',
+			},
   		},
 		listStyleType: {
 			dash: `'- '`

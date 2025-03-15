@@ -1,14 +1,19 @@
 #article__content pre {
-    @apply bg-slate-200;
+    @apply bg-nord-5;
     @apply p-3;
     @apply text-sm;
     @apply rounded;
     overflow-x: auto;
 }
 
+.dark #article__content pre {
+    @apply bg-nord-4;
+    @apply text-nord-1;
+}
+
 #article__content strong {
     @apply font-bold;
-    @apply text-neutral-700;
+    /* @apply text-neutral-700; */
 }
 
 #article__content img {
@@ -20,5 +25,9 @@
     @apply italic;
     @apply text-sm;
     @apply text-center;
-    @apply text-neutral-700;
+    @apply text-nord-3;
+}
+
+.dark #article__content span + em {
+    @apply text-nord-4;
 }
