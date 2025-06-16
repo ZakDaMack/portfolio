@@ -78,7 +78,7 @@ const About: React.FC = () => {
                     <p className='mt-3 text-xl'>
                         I'm a <span className="font-semibold">senior software engineer</span> with over <span className="font-semibold">6 years</span> of 
                         professional experience in all areas. I have worked on a variety of projects across the stack, from snazzy, 
-                        front-end websites, all the way back to the infrastructure that hosts your apps and services
+                        front-end websites, all the way back to the infrastructure that runs your apps and services
                     </p>
                 </div>
 
