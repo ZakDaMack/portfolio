@@ -57,28 +57,53 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-			nord: {
-        		'0': 'var(--nord0)',
-				'1': 'var(--nord1)',
-				'2': 'var(--nord2)',
-				'3': 'var(--nord3)',
-				'4': 'var(--nord4)',
-				'5': 'var(--nord5)',
-				'6': 'var(--nord6)',
-				'7': 'var(--nord7)',
-				'8': 'var(--nord8)',
-				'9': 'var(--nord9)',
-				'10': 'var(--nord10)',
-				'11': 'var(--nord11)',
-				'12': 'var(--nord12)',
-				'13': 'var(--nord13)',
-				'14': 'var(--nord14)',
-				'15': 'var(--nord15)',
-			},
+  			nord: {
+  				'0': 'var(--nord0)',
+  				'1': 'var(--nord1)',
+  				'2': 'var(--nord2)',
+  				'3': 'var(--nord3)',
+  				'4': 'var(--nord4)',
+  				'5': 'var(--nord5)',
+  				'6': 'var(--nord6)',
+  				'7': 'var(--nord7)',
+  				'8': 'var(--nord8)',
+  				'9': 'var(--nord9)',
+  				'10': 'var(--nord10)',
+  				'11': 'var(--nord11)',
+  				'12': 'var(--nord12)',
+  				'13': 'var(--nord13)',
+  				'14': 'var(--nord14)',
+  				'15': 'var(--nord15)'
+  			}
   		},
-		listStyleType: {
-			dash: `'- '`
-		}
+  		listStyleType: {
+  			dash: '`'- '`'
+  		},
+  		animation: {
+  			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
+  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear'
+  		},
+  		keyframes: {
+  			'shimmer-slide': {
+  				to: {
+  					transform: 'translate(calc(100cqw - 100%), 0)'
+  				}
+  			},
+  			'spin-around': {
+  				'0%': {
+  					transform: 'translateZ(0) rotate(0)'
+  				},
+  				'15%, 35%': {
+  					transform: 'translateZ(0) rotate(90deg)'
+  				},
+  				'65%, 85%': {
+  					transform: 'translateZ(0) rotate(270deg)'
+  				},
+  				'100%': {
+  					transform: 'translateZ(0) rotate(360deg)'
+  				}
+  			}
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,65 +1,139 @@
+import { faAward, faCode, faDesktop } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { StaticImage } from "gatsby-plugin-image";
+import { motion } from "motion/react";
 import React from "react"
+import { cn } from "@/lib/utils";
+import { ShinyButton } from "../magicui/shiny-button";
+
+const skills = {
+    'Front-end': [
+        'Typescript',
+        'VueJS',
+        'React',
+        'Tailwind'
+    ],
+    'Backend': [
+        'SQL',
+        'MongoDB',
+        'Laravel',
+        'C#',
+        'Java',
+        'Golang'
+    ],
+    'Tools': [
+        'Blockchain',
+        'AWS',
+        'Docker',
+        'Kubernetes',
+        'Atlassian',
+        'Miccroservice Architecture'
+    ],
+}   
+
+const cardProps = {
+    className: "rounded-2xl border px-6 py-12 bg-white/10 dark:bg-black/10 backdrop-blur-sm z-10",
+    initial: { opacity: 0, y: 100 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true }
+}
 
 const About: React.FC = () => {
-    const skills = [
-        'Javascript',
-        'VueJS',
-        'Laravel',
-        'Linux',
-        'SQL',
-        'Mongo',
-        'Blockchain',
-        'Leadership',
-        '.NET',
-        'AWS',
-        'Atlassian',
-        'Docker',
-        'Microservices',
-        'Golang',
-        'React'
-    ];
     
     return (
-        <section id="about" className="py-16 px-4 md:px-24 min-h-[90vh]">
+        <section id="about" className={cn(
+            "py-16 px-4 md:px-24 min-h-[90vh] relative",
+            "before:bg-[url(/lines.svg)] before:bg-cover before:opacity-10 before:left-0 before:right-0 before:bottom-10 before:absolute before:h-full"
+        )}>
             <div className="container max-w-[80em] mx-auto">
-
-                <div className="text-center pb-12">
-                    <h2 className="text-6xl pb-4 font-light">About Me</h2>
-                    <p className="text-center text-xl max-w-3xl mx-auto">
-                        I'm a full stack developer with over 5 years of professional experience.
-                        Find out more about me, such as my skills and history, below.
+        
+                {/* intro */}
+                <div className="mx-auto px-4 my-16 md:my-24 max-w-screen-sm lg:max-w-screen-lg  text-center md:text-left">
+                    <div className="flex gap-x-8 gap-y-4 flex-col md:flex-row items-center">
+                         <motion.div 
+                            initial={{rotate: '-360deg', x: -200, opacity: 0}} 
+                            whileInView={{rotate: '0deg', x: 0, opacity: 1}}
+                            transition={{type: 'spring', duration: 1}}
+                            viewport={{once: true}}
+                        >
+                            <StaticImage 
+                                src='../../images/zakdowsett.png'
+                                alt="Zak Dowsett" 
+                                className="w-[140px] rounded-full drop-shadow-lg"
+                            />
+                        </motion.div>
+                        <div className="text-2xl sm:text-4xl lg:text-6xl font-bold space-y-1">
+                            <h2>
+                                Hi, I'm <span className="text-nord-10">Zak Dowsett</span>
+                                <motion.span 
+                                    className="pl-3 origin-[70%_70%] inline-block" 
+                                    initial={{rotate: '-8deg'}} 
+                                    whileInView={{rotate: '14deg'}}
+                                    transition={{repeat: Infinity, type: 'spring', duration: 1.5, repeatType: 'reverse', repeatDelay: 0}}
+                                >👋🏻</motion.span>
+                            </h2>
+                            <p>A <span className="text-nord-10">Senior Software Engineer</span></p>
+                        </div>
+                    </div>
+                    <p className='mt-3 text-xl'>
+                        I'm a <span className="font-semibold">senior software engineer</span> with over <span className="font-semibold">6 years</span> of 
+                        professional experience in all areas. I have worked on a variety of projects across the stack, from snazzy, 
+                        front-end websites, all the way back to the infrastructure that hosts your apps and services
                     </p>
                 </div>
 
-                <div className="flex gap-10 flex-col md:flex-row">
-                    <div className="flex-1 text-justify space-y-4">
-                        <h3 className="text-3xl">Who Am I?</h3>
-                        <p className="text-xl">
-                            I am a quick learning and adaptable <b>Full-Stack Software Developer</b> with over 5 years of professional experience.
-                            I achieved a 1st with Honours in (BSc) Computer Science from the University of Portsmouth and have since been
-                            involved in a number of greenfield projects. 
-                        </p><p className="text-xl">  
-                            More recently, I worked as <b>Development Team Lead</b>, managing multiple projects and mentoring colleagues to release a number 
-                            of SaaS solutions to brands such as Samsung, Hydrow and HP. The work required the use of agile methodologies and liasing with 
-                            both the product owners and project manager. The multitude of projects for our small team required automation wherever possible
-                            in order to keep the work productive and bug-free.
-                        </p><p className="text-xl">  
-                            During my time at university, I had a huge interest in the application of blockchain and cyber security, which 
-                            I have applied at work and also in my freetime, working on my homelab, constantly furthering my knowledge. 
-                        </p>
-                    </div>
-
-                    <div className="flex-1">
-                        <h3 className="text-3xl pb-2">Skills</h3>
-                        <div className="flex flex-wrap gap-4">
-                            {skills.map(skill => (
-                                <div
-                                    key={skill}
-                                    className="d-inline-block px-4 md:px-8 py-2 md:py-4 bg-nord-4 text-nord-1 rounded"
-                                >{skill}</div>
-                            ))}
+                {/* details grid */}
+                <div className="grid lg:grid-cols-3 gap-8 bg-[radial-gradient()] from-fuchsia-400 to-teal-400">
+                    <motion.div {...cardProps}>
+                        <div className="rounded-full w-16 bg-nord-9 aspect-square grid">
+                            <FontAwesomeIcon fontSize={32} icon={faDesktop} className="text-white place-self-center" />
                         </div>
-                    </div>
+                        <h3 className="text-3xl pt-6 pb-12">What can I do?</h3>
+                        <ul className='text-lg space-y-1'>
+                            <li>Front-end Development</li>
+                            <li>Mobile Development</li>
+                            <li>Backend Development</li>
+                            <li>Event-driven Architecture</li>
+                            <li>API Integration</li>
+                            <li>AWS Infrastructure</li>
+                            <li>Databse Design</li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div {...cardProps} transition={{delay: 0.1}}>
+                        <div className="rounded-full w-16 bg-nord-11 grid aspect-square">
+                            <FontAwesomeIcon fontSize={32} icon={faCode} className="text-white place-self-center" />
+                        </div>
+                        <h3 className="text-3xl pt-6 pb-12">What do I know?</h3>
+                        <ul className='text-lg space-y-1'>
+                            {Object.entries(skills).map(([key, val]) => (
+                                <li key={key}>
+                                    <p>{key}</p> 
+                                    <p className="text-sm text-neutral-500 pb-2">{val.join(', ')}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+
+                    <motion.div {...cardProps} transition={{delay: 0.2}}>
+                        <div className="rounded-full w-16 bg-nord-15 grid aspect-square">
+                            <FontAwesomeIcon fontSize={32} icon={faAward} className="text-white place-self-center" />
+                        </div>
+                        <h3 className="text-3xl pt-6 pb-12">What have I achieved?</h3>
+                        <ul className='text-lg space-y-1'>
+                            <li>
+                                <span className='font-bold'>Certified Blockchain Security Professional</span> via the <a href="https://blockchaintrainingalliance.com/" target='_blank'>Blockchain Training Alliance</a> 
+                            </li>
+                        </ul>
+                    </motion.div>
+                </div>  
+
+                <div className='flex justify-end mt-4 relative'>
+                    <a href="/resume.pdf" target='_blank'>
+                        <ShinyButton className="rounded-3xl">
+                            <span className='text-foreground'>View my resume</span>
+                        </ShinyButton>
+                    </a>
                 </div>
 
             </div>

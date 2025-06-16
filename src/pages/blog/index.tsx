@@ -1,32 +1,61 @@
 import React from 'react';
+import { motion } from 'motion/react';
+import BlogMDX from '@/models/blog_mdx';
 import { graphql, HeadFC, PageProps } from "gatsby";
 
-import BlogMDX from '@/models/blog_mdx';
-import BlogLayout from "@/components/blog/layout";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import BlogPostEntry from '@/components/blog/entry';
+import FeaturedCarousel from '@/components/blog/featured_carousel';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const BlogPage: React.FC<PageProps<Queries.AllBlogsQuery>> = ({ data }) => {
-    const blogs = data.allMdx.nodes;
+    const blogs = data.allMdx.nodes as BlogMDX[];
+    const tags = ['All', ...new Set(blogs.flatMap(b => b.frontmatter.tags))];
+
+    const [filter, setFilter] = React.useState('All');
+    const filteredBlogs = React.useMemo(() => {
+      if (filter === 'All') return blogs;
+
+      return blogs.filter((b) => b.frontmatter.tags.includes(filter))
+    }, [blogs, filter])
 
     return (
-        <BlogLayout>
-          <section className='bg-nord-1 text-white'>
-              <div className='container mx-auto px-4 py-20'>
-                  <h2 className='text-5xl'>Featured</h2>
-                  <div className='grid lg:grid-cols-2 gap-x-8'>
-                    {blogs.map((b,i) => (
-                      <BlogPostEntry 
-                        featured={i === 0}
-                        blog={b as BlogMDX}
-                      />
-                    ))}
-                  </div>
-              </div>
+      <>
+        <Header blurHeight={10} />
+        <main className='w-screen min-h-screen'>
+          <motion.section 
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true}}
+              className='max-w-screen hidden sm:block'
+          >
+            <FeaturedCarousel blogs={blogs.slice(0,3)} />
+          </motion.section>
+
+          <section className='px-12 pt-14 pb-28'>
+            <div className='block sm:hidden mt-12' />
+            <h1 className='text-5xl font-light'>Blog</h1>
+            <p className='mt-2 mb-6 text-xl text-nord-3 dark:text-nord-4'>Browse the latest and greatest peaks into my mind!</p>
+            <Tabs className='mb-8' value={filter} onValueChange={setFilter}>
+              <TabsList className='bg-transparent p-0 space-x-4'>
+                {tags.map(tag => (
+                  <TabsTrigger 
+                    key={tag} value={tag}
+                    className='text-base py-2 px-4 data-[state=active]:dark:bg-nord-1 data-[state=active]:bg-nord-4 text-foreground'
+                  >{tag}</TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+
+            {/* blog list */}
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8'>
+              {filteredBlogs.map((b,i) => (<BlogPostEntry blog={b as BlogMDX} />))}
+            </div>
           </section>
-          <section className='container mx-auto px-4 py-14'>
-            <p className='text-3xl text-center'>More coming soon!</p>
-          </section>
-        </BlogLayout>
+        </main>
+        <Footer />
+      </>
     );
 }
 
