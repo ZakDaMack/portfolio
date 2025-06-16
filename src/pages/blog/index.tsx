@@ -36,7 +36,7 @@ const BlogPage: React.FC<PageProps<Queries.AllBlogsQuery>> = ({ data }) => {
           <section className='px-12 pt-14 pb-28'>
             <div className='block sm:hidden mt-12' />
             <h1 className='text-5xl font-light'>Blog</h1>
-            <p className='mt-2 mb-6 text-xl text-nord-3 dark:text-nord-4'>Browse the latest and greatest peaks into my mind!</p>
+            <p className='mt-2 mb-6 text-xl text-nord-3 dark:text-nord-4'>Browse the latest, occasionally made blog posts down below!</p>
             <Tabs className='mb-8' value={filter} onValueChange={setFilter}>
               <TabsList className='bg-transparent p-0 space-x-4'>
                 {tags.map(tag => (
