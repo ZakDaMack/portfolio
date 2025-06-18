@@ -130,7 +130,7 @@ const About: React.FC = () => {
 
                 <div className='flex justify-end mt-4 relative'>
                     <a href="/resume.pdf" target='_blank'>
-                        <ShinyButton className="rounded-3xl">
+                        <ShinyButton className="rounded-3xl py-4">
                             <span className='text-foreground'>View my resume</span>
                         </ShinyButton>
                     </a>

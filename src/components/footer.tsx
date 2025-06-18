@@ -16,7 +16,7 @@ const links = [
 ];
 
 const Footer: React.FC = () => (
-  <footer className="fixed bottom-4 w-full flex justify-center z-20">
+  <footer className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20">
     <TooltipProvider>
       <Dock direction="middle">
         {links.map((item) => (
