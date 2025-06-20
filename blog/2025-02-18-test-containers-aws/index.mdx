@@ -1,0 +1,31 @@
+---
+title: "Integration Testing Your AWS Applications"
+subtitle: "Testing that your shiny new software integrates with AWS can be time consuming (and maybe even costly) process. Let's look at how we can use Go, Test Containers and LocalStack to create easy, repeatable tests to ensure that your application stays working" 
+date: "2025-02-18"
+hero_img: ./localstack.png
+hero_attr: "LocalStack can run any AWS service locally on your machine"
+published: true
+tags: ["Development"]
+---
+
+coming soon
+
+1. write function
+
+2. write a test
+
+```go
+package main
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestListenToQueue(t *testing.T) {
+	message, err := ListenToQueue("test")
+	assert.NoError(t, err)
+	assert.Equal(t, "hello", message.TextContent)
+}
+```

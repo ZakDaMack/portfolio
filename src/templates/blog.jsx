@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { MDXProvider } from '@mdx-js/react';
 import BlogLayout from "@/components/blog/layout";
+import ZakDowsett from '../images/zakdowsett.png'
 
 import './blog.css'
 
@@ -31,16 +32,26 @@ const BlogPostPage = ({ data, children }) => {
                 <GatsbyImage
                   image={heroImg}
                   objectFit='cover'
-                  className='rounded-xl w-full z-[5] shadow-lg'
+                  className='rounded-xl w-full z-[5] shadow-lg max-h-[400px]'
                   alt={blog?.frontmatter?.hero_attr}
                 />
               </div>
               <div className='absolute bottom-0 bg-background w-full h-20' />
             </section>
-            <section className='max-w-screen-md mx-auto px-8 pb-2 pt-1 space-y-2'>
+            <section className='max-w-screen-md mx-auto px-8 pt-1 space-y-2'>
               <p className='text-sm'>{blog?.frontmatter?.hero_attr}</p>
-              <p>{blog?.frontmatter?.date}</p>
-              <div className='border-b-2 pt-4 border-nord-2' />
+              <div className='flex items-center space-x-2 py-2'>
+                <p className='font-mono'>{blog?.frontmatter?.date}</p>
+                <div className='grow'></div>
+                <Link to='/' className='text-foreground'>Zak Dowsett</Link>
+                <img 
+                  width={30}
+                  src={ZakDowsett}
+                  alt="Zak Dowsett" 
+                  className='aspect-square rounded-full'
+                />
+              </div>
+              <div className='border-b-2 border-nord-2' />
             </section>
             <section 
               id='article__content' 

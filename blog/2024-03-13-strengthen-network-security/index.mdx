@@ -1,5 +1,5 @@
 ---
-title: "Strengthen your network security agaisnt malicious actors"
+title: "Strengthen your network security against malicious actors"
 subtitle: "A guide into strengthening your reverse proxy using CrowdSec" 
 date: "2024-03-13"
 hero_img: ./crowdsec.png
@@ -32,7 +32,7 @@ services:
       - /var/log:/var/log
     labels:
       # these are the min traefik settings required to get crowdsec working
-      <span style="color: red"># crowdsec parses the access log to look for any offending IPs</span>
+      # crowdsec parses the access log to look for any offending IPs
       - accessLog=true
       - accessLog.filePath=/var/log/traefik/access.log
       - accessLog.bufferingSize=100 

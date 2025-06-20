@@ -64,7 +64,7 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
                         Blog
                     </Link>
 
-                    <div className='grow  md:grow-0' />
+                    <div className='grow md:grow-0' />
 
                     {/* menu */}
                     <NavigationMenu className='px-4 hidden md:block'>
@@ -74,11 +74,11 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
                                     Latest
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <ul className="grid gap-3 p-3 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                    <ul className="grid gap-3 p-3 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-nord-5 dark:bg-nord-2 border-0 shadow-lg">
                                         <li className="row-span-3">
                                             <NavigationMenuLink asChild>
                                                 <a
-                                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-3 no-underline outline-none focus:shadow-md"
+                                                    className="flex h-full w-full select-none flex-col justify-start rounded-md bg-nord-4 dark:bg-nord-3 p-3 no-underline outline-none focus:shadow-md"
                                                     href={firstLatest.fields?.slug!}
                                                 >
                                                     <GatsbyImage 
@@ -87,7 +87,7 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
                                                         alt='hero image'
                                                     />
                                                     <div className='p-2'>
-                                                        <h3 className="text-md pb-2 font-medium text-black">
+                                                        <h3 className="text-md pb-2 font-medium text-nord-0 dark:text-nord-4">
                                                             {firstLatest.frontmatter?.title}
                                                         </h3>
                                                         <p className="text-sm leading-tight text-muted-foreground">
@@ -98,13 +98,13 @@ const BlogLayout: React.FC<LayoutProps> = ({ children }) => {
                                             </NavigationMenuLink>
                                         </li>
                                         {data.allMdx.nodes.slice(1).map(post => (
-                                            <li className="hover:bg-muted p-3 rounded-md">
+                                            <li className="hover:bg-nord-4 dark:hover:bg-nord-3 p-3 rounded-md">
                                                 <NavigationMenuLink asChild>
                                                     <a href={post.fields!.slug!}>
-                                                        <h3 className="text-md pb-2 font-medium text-black">
+                                                        <h3 className="text-md pb-2 font-medium text-nord-0 dark:text-nord-4">
                                                             {post.frontmatter?.title}
                                                         </h3>
-                                                        <p className="text-sm leading-tight text-muted-foreground">
+                                                        <p className="text-sm leading-tight text-muted-foreground line-clamp-2">
                                                             {post.frontmatter?.subtitle}
                                                         </p>
                                                     </a>

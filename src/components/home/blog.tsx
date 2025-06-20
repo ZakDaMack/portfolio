@@ -2,6 +2,7 @@ import React from "react"
 import BlogItem from "./blog_item"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import BlogMDX from "../../models/blog_mdx";
+import BlogPostEntry from "../blog/entry";
 
 const Blog: React.FC = () => {
     const data = useStaticQuery(graphql`
@@ -15,6 +16,7 @@ const Blog: React.FC = () => {
             frontmatter {
               title
               subtitle
+              tags
               hero_attr
               date(formatString: "DD MMM, YYYY")
               hero_img {
@@ -51,15 +53,9 @@ const Blog: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {posts.map((item: BlogMDX) => (
-                        <BlogItem 
-                          key={item.id}
-                          title={item.frontmatter.title}
-                          excerpt={item.frontmatter.subtitle}
-                          image={item.frontmatter.hero_img}
-                          imageAlt={item.frontmatter.hero_attr}
-                          link={item.fields.slug}
-                          date={item.frontmatter.date}
-                        />
+                      <div key={item.id}>
+                        <BlogPostEntry featured blog={item} />
+                      </div>
                     ))}
                 </div>
 
