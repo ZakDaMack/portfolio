@@ -1,10 +1,11 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { MDXProvider } from '@mdx-js/react';
-import BlogLayout from "@/components/blog/layout";
-import ZakDowsett from '../images/zakdowsett.png'
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 import './blog.css'
 
@@ -13,56 +14,78 @@ const BlogPostPage = ({ data, children }) => {
     const heroImg = getImage(blog.frontmatter.hero_img)
 
     return (
-      <BlogLayout>
+      <>
+        <Header className="max-w-screen-xl left-1/2 -translate-x-1/2" blurHeight={100} />
+        <main className='w-screen min-h-screen'>
           <article>
-            <section className='relative bg-nord-1 text-nord-6 pt-20'>
-              <div className='max-w-screen-md mx-auto px-8 space-y-4'>
-                <p>
-                  {blog?.frontmatter?.tags?.map((tag) => (
-                    <Link 
-                      className='bg-gradient-to-r from-fuchsia-200 to-yellow-300 text-transparent bg-clip-text'
-                      to={`/tags/${tag.toLowerCase()}`}
-                    >
-                      {tag}
-                    </Link>
-                  ))}
-                </p>
-                <h1 className='text-3xl md:text-5xl max-w-4xl font-bold'>{blog?.frontmatter?.title}</h1>
-                <p className='text-lg text-neutral-400 pb-6'>{blog?.frontmatter?.subtitle}</p>
+            <motion.section 
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true}}
+              className='mx-auto pt-3 px-4 max-w-screen-xl'
+            >
+              <div className='rounded-3xl overflow-hidden relative'>
                 <GatsbyImage
                   image={heroImg}
                   objectFit='cover'
-                  className='rounded-xl w-full z-[5] shadow-lg max-h-[400px]'
+                  className='w-full aspect-video'
                   alt={blog?.frontmatter?.hero_attr}
                 />
+                <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent hidden md:flex flex-col justify-end p-6  '>
+                  {/* tags */}
+                  <div>
+                    {blog?.frontmatter?.tags?.map((tag) => (
+                      <Link 
+                        key={tag}
+                        className='rounded-3xl p-3 bg-black/10 text-nord-4 border border-nord-0 backdrop-blur-sm'
+                        to={`/tags/${tag.toLowerCase()}`}
+                      >
+                        {tag}
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* article info */}
+                  <div className='md:flex justify-between items-end my-8'>
+                    <div className='space-y-3'>
+                      <h1 className='text-3xl md:text-5xl text-nord-6 max-w-4xl font-bold'>{blog?.frontmatter?.title}</h1>
+                      <p className='text-lg text-neutral-400'>{blog?.frontmatter?.subtitle}</p>
+                    </div>
+                    <div>
+                      <p className='text-nord-6'>{blog?.frontmatter?.date}</p>
+                    </div>
+                  </div>
+                  
+                </div>
               </div>
-              <div className='absolute bottom-0 bg-background w-full h-20' />
-            </section>
-            <section className='max-w-screen-md mx-auto px-8 pt-1 space-y-2'>
-              <p className='text-sm'>{blog?.frontmatter?.hero_attr}</p>
-              <div className='flex items-center space-x-2 py-2'>
-                <p className='font-mono'>{blog?.frontmatter?.date}</p>
-                <div className='grow'></div>
-                <Link to='/' className='text-foreground'>Zak Dowsett</Link>
-                <img 
-                  width={30}
-                  src={ZakDowsett}
-                  alt="Zak Dowsett" 
-                  className='aspect-square rounded-full'
-                />
-              </div>
-              <div className='border-b-2 border-nord-2' />
-            </section>
-            <section 
+              <p className='text-sm pl-4'>{blog?.frontmatter?.hero_attr}</p>
+            </motion.section>
+            <motion.section 
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true}} 
+              transition={{delay: 0.2}}
               id='article__content' 
-              className='text-justify space-y-6 px-8 pt-4 pb-20 max-w-screen-md mx-auto'
+              className='text-justify space-y-6 px-4 md:px-8 pt-6 pb-16 md:py-28 max-w-screen-md mx-auto'
             >
+
+                  {/* article info */}
+                  <div className='block md:hidden mb-8 text-left'>
+                    <div className='space-y-3'>
+                      <h1 className='text-2xl font-bold'>{blog?.frontmatter?.title}</h1>
+                      <p className='text-lg text-neutral-400'>{blog?.frontmatter?.subtitle}</p>
+                    </div>
+                    <p>{blog?.frontmatter?.date}</p>
+                    <div className='border mt-6' />
+                  </div>
               <MDXProvider>
                 {children}
               </MDXProvider>
-            </section>
+            </motion.section>
           </article>
-      </BlogLayout>
+        </main>
+        <Footer />
+      </>
     );
 }
 

@@ -6,6 +6,10 @@
     overflow-x: auto;
 }
 
+#article__content em {
+    @apply italic;
+}
+
 .dark #article__content pre {
     @apply bg-nord-4;
     @apply text-nord-1;
@@ -17,7 +21,7 @@
 }
 
 #article__content img {
-    @apply rounded-lg;
+    @apply rounded-2xl;
 }
 
 #article__content span + em {

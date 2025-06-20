@@ -33,6 +33,16 @@ export const onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
           value: `/blog${slug}`,
         })
       }
+
+      if (collection == 'portfolio') {
+        const slug = createFilePath({ node, getNode })
+        createNodeField({
+          node,
+          name: `slug`,
+          value: `${slug}`,
+        })
+      }
+
     }
 };
 
@@ -40,7 +50,7 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions
 
   // get only blog posts that are published
-  const allMdx = await graphql(`
+  const blogMdx = await graphql(`
     query BlogPages {
       allPosts: allMdx(
         filter: { fields: { collection: { eq: "blog"}}, frontmatter: { published: { eq: true }}},
@@ -73,11 +83,11 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
       }
     }
   `)
-  if (allMdx.errors) {
-    throw allMdx.errors
+  if (blogMdx.errors) {
+    throw blogMdx.errors
   }
 
-  const posts = (allMdx.data as Queries.BlogPagesQuery).allPosts.nodes
+  const posts = (blogMdx.data as Queries.BlogPagesQuery).allPosts.nodes
 
   const template = path.resolve(`./src/templates/blog.jsx`);
   posts.forEach((post) => {
@@ -89,4 +99,40 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
       },
     })
   })
+
+  // get only blog posts that are published
+  const portfolioMdx = await graphql(`
+    query PortfolioPages {
+      allPosts: allMdx(
+          filter: { fields: { collection: { eq: "portfolio"}}},
+          sort: { frontmatter: { leave_date: DESC}}  
+      ) {
+        nodes {
+          fields {
+            slug
+          }
+          internal {
+            contentFilePath
+          }
+        }
+      }
+    }
+  `)
+  if (portfolioMdx.errors) {
+    throw portfolioMdx.errors
+  }
+
+  const portfolio = (portfolioMdx.data as Queries.BlogPagesQuery).allPosts.nodes
+
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio.jsx`);
+  portfolio.forEach((entry) => {
+    createPage({
+      path: entry.fields!.slug!,
+      component: `${portfolioTemplate}?__contentFilePath=${entry.internal.contentFilePath}`,
+      context: {
+        slug: entry.fields!.slug,
+      },
+    })
+  })
+
 }

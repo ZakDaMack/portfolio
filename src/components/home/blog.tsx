@@ -1,5 +1,4 @@
 import React from "react"
-import BlogItem from "./blog_item"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import BlogMDX from "../../models/blog_mdx";
 import BlogPostEntry from "../blog/entry";
@@ -15,6 +14,7 @@ const Blog: React.FC = () => {
           nodes {
             frontmatter {
               title
+              tags
               subtitle
               tags
               hero_attr
@@ -39,23 +39,17 @@ const Blog: React.FC = () => {
         <section id="blog" className="py-16 px-4 md:px-24 min-h-[90vh]">
             <div className="container max-w-[80em] mx-auto">
 
-                <div className="text-center pb-12">
-                    <h2 className="text-6xl pb-4 font-light">Blog</h2>
-                    <p className="text-center text-xl max-w-3xl mx-auto">
-                        Recently, I've started homelabbing to improve my DevOps and infrastructure skillset.
-                        Going forward, I am to write about what I've learnt for future reference and hopefully to help others as well.
-                        View my latest posts below, or go to
-                    </p>
-                    <Link to="/blog" className="text-xl pt-8">
-                        https://zakdowsett.co.uk/blog
-                    </Link>
+                <div className="pb-12">
+                    <h2 className="text-5xl font-light">Blog</h2>
+                    <p className='mt-1 mb-4 text-xl text-nord-3 dark:text-nord-4'>View my latest posts below</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {posts.map((item: BlogMDX) => (
-                      <div key={item.id}>
-                        <BlogPostEntry featured blog={item} />
-                      </div>
+                        <BlogPostEntry 
+                          key={item.id}
+                          blog={item}
+                        />
                     ))}
                 </div>
 
