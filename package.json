@@ -33,6 +33,7 @@
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "gatsby": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",

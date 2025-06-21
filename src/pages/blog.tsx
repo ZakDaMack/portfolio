@@ -24,21 +24,23 @@ const BlogPage: React.FC<PageProps<Queries.AllBlogsQuery>> = ({ data }) => {
       <>
         <Header blurHeight={10} />
         <main className='w-screen min-h-screen'>
-          <motion.section 
+          {/* <motion.section 
               initial={{opacity: 0, y: 50}}
               whileInView={{opacity: 1, y: 0}}
               viewport={{once: true}}
               className='max-w-screen hidden sm:block'
-          >
+          > */}
+          <section className='max-w-screen hidden sm:block'>
             <FeaturedCarousel blogs={blogs.slice(0,3)} />
-          </motion.section>
+          </section>
+          {/* </motion.section> */}
 
           <section className='px-12 pt-14 pb-28'>
             <div className='block sm:hidden mt-12' />
             <h1 className='text-5xl font-light'>Blog</h1>
             <p className='mt-2 mb-6 text-xl text-nord-3 dark:text-nord-4'>Browse the latest, occasionally made blog posts down below!</p>
             <Tabs className='mb-8' value={filter} onValueChange={setFilter}>
-              <TabsList className='bg-transparent p-0 space-x-4'>
+              <TabsList className='bg-transparent h-[unset] flex p-0 gap-x-4 justify-start flex-wrap'>
                 {tags.map(tag => (
                   <TabsTrigger 
                     key={tag} value={tag}
@@ -50,7 +52,7 @@ const BlogPage: React.FC<PageProps<Queries.AllBlogsQuery>> = ({ data }) => {
 
             {/* blog list */}
             <div className='grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8'>
-              {filteredBlogs.map((b,i) => (<BlogPostEntry blog={b as BlogMDX} />))}
+              {filteredBlogs.map((b,i) => (<BlogPostEntry key={b.id} blog={b as BlogMDX} />))}
             </div>
           </section>
         </main>

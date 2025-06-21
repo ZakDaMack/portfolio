@@ -34,7 +34,7 @@ const BlogPostEntry: React.FC<{blog: BlogMDX}> = ({ blog }) => {
                 
                 <div className='mt-2 text-foreground'>
                     <p className='text-neutral-400 pb-3 text-sm'>{blog.frontmatter.date}</p>
-                    <h3 className='text-2xl font-bold pb-1'>{blog.frontmatter.title}</h3>
+                    <h3 className='text-2xl font-bold pb-1 group-hover:text-nord-11'>{blog.frontmatter.title}</h3>
                     <p className='text-neutral-400'>{blog.frontmatter.subtitle}</p>
                 </div>
             </Link>

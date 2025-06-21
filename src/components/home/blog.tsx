@@ -1,6 +1,7 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
 import BlogMDX from "../../models/blog_mdx";
+import { graphql, useStaticQuery } from "gatsby"
+
 import BlogPostEntry from "../blog/entry";
 
 const Blog: React.FC = () => {
@@ -36,7 +37,7 @@ const Blog: React.FC = () => {
 
     const posts = data.allMdx.nodes;
     return (
-        <section id="blog" className="py-16 px-4 md:px-24 min-h-[90vh]">
+        <section id="blog" className="py-20 px-4 md:px-24 min-h-[90vh]">
             <div className="container max-w-[80em] mx-auto">
 
                 <div className="pb-12">
