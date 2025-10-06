@@ -25,6 +25,7 @@ const config: GatsbyConfig = {
               maxWidth: 1200,
             },
           },
+          `gatsby-remark-gifs`
         ],
       }
     }, 

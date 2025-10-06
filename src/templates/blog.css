@@ -10,6 +10,19 @@
     @apply italic;
 }
 
+#article__content h1 {
+    @apply text-3xl;
+    @apply font-bold;   
+}
+
+#article__content h2 {
+    @apply text-2xl;  
+}
+
+#article__content h3 {
+    @apply text-xl;
+}
+
 .dark #article__content pre {
     @apply bg-nord-4;
     @apply text-nord-1;
@@ -22,6 +35,7 @@
 
 #article__content img {
     @apply rounded-2xl;
+    @apply mx-auto;
 }
 
 #article__content span + em {

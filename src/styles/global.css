@@ -7,6 +7,13 @@
     src: local('Inter'), url(../fonts/Inter-VariableFont_opsz,wght.ttf), format('truetype');
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter'), url(../fonts/Inter-Italic-VariableFont_opsz,wght.ttf), format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 :root {
     line-height: 1.5;
     font-weight: 400;

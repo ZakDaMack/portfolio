@@ -32,6 +32,7 @@ const BlogPostPage = ({ data, children }) => {
                   alt={blog?.frontmatter?.hero_attr}
                 />
                 <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent hidden md:flex flex-col justify-end p-6  '>
+                  
                   {/* tags */}
                   <div>
                     {blog?.frontmatter?.tags?.map((tag) => (
@@ -47,8 +48,8 @@ const BlogPostPage = ({ data, children }) => {
 
                   {/* article info */}
                   <div className='md:flex justify-between items-end my-8'>
-                    <div className='space-y-3'>
-                      <h1 className='text-3xl md:text-5xl text-nord-6 max-w-4xl font-bold'>{blog?.frontmatter?.title}</h1>
+                    <div className='space-y-3 max-w-4xl'>
+                      <h1 className='text-3xl md:text-5xl text-nord-6 font-bold'>{blog?.frontmatter?.title}</h1>
                       <p className='text-lg text-neutral-400'>{blog?.frontmatter?.subtitle}</p>
                     </div>
                     <div>

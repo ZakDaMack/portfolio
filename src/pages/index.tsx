@@ -11,7 +11,7 @@ import Footer from "@/components/footer"
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main className="w-screen max-w-full">
-      <Header />
+      <Header blurHeight={100} />
       <Splash />
       <About />
       <Portfolio />

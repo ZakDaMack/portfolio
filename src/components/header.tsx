@@ -26,15 +26,13 @@ const Header: React.FC<{
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const toPortfolio = () => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
-
   return (
     <header className={cn(
       "z-20 p-4 fixed t-0 w-full",
       className
     )}>
       <div className={cn(
-        "flex p-2 align-center isolate rounded-full transition-all relative",
+        "flex p-2 align-center isolate rounded-full transition-all duration-700 relative",
         forceBlur || blurred ? "bg-white/10 dark:bg-black/10  border backdrop-blur-md" : undefined
       )}>
         <Link className="text-foreground" to="/">
