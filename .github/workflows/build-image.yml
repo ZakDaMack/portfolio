@@ -9,4 +9,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --target build-stage
+      run: docker build -f deploymets/Dockerfile . --target build-stage
