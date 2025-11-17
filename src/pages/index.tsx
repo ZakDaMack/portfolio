@@ -1,26 +1,62 @@
-import React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { FC } from "react";
 
-import Header from "@/components/header"
-import Splash from "../components/home/splash_two"
-import About from "../components/home/about"
-import Portfolio from "../components/home/portfolio"
-import Blog from "../components/home/blog"
-import Footer from "@/components/footer"
+import { getAllBlogs } from "@/lib/blogs";
+import { getAllItems } from "@/lib/portfolio";
 
-const IndexPage: React.FC<PageProps> = () => {
-  return (
-    <main className="w-screen max-w-full">
-      <Header blurHeight={100} />
-      <Splash />
-      <About />
-      <Portfolio />
-      <Blog />
-      <Footer /> 
-    </main>
-  )
+import Blog from "@/interfaces/blog";
+import { GetStaticProps } from "next";
+import Portfolio from "@/interfaces/portfolio";
+
+import Head from "next/head";
+import About from "@/components/home/about";
+import RootLayout from "@/components/layout";
+import Splash from "@/components/home/splash";
+import BlogSection from "@/components/home/blog";
+import PortfolioSection from "@/components/home/portfolio";
+
+interface _HomeProps {
+  portfolioData: Portfolio[];
+  blogData: Blog[];
 }
 
-export default IndexPage
+const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
+  return (
+    <RootLayout>
+      <Head>
+        <title>Zak Dowsett</title>
+      </Head>
+      <Splash />
+      <About />
+      <PortfolioSection data={portfolioData} />
+      <BlogSection data={blogData} />
+    </RootLayout>
+  );
+}
 
-export const Head: HeadFC = () => <title>Zak Dowsett</title>
+const getStaticProps: GetStaticProps<_HomeProps> = async ({ params }) => {
+  // Get external data from the file system
+  const portfolioData = await getAllItems()
+  portfolioData.sort((a, b) => {
+    return new Date(b.start_date).getTime() - new Date(a.start_date).getTime();
+  });
+
+  const blogData = await getAllBlogs();
+  blogData.forEach(b => {
+    b.id = `/blog/${b.id}`;
+  });
+  blogData.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
+  // The value of the `props` key will be
+  //  passed to the `Home` component
+  return {
+    props: { 
+      portfolioData,
+      blogData: blogData.slice(0, 3),
+    },
+  };
+};
+
+export default Home;
+export { getStaticProps };

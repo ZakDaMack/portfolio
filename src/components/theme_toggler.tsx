@@ -1,4 +1,4 @@
-import React from "react"
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
 
 import { cn } from "@/lib/utils";
 import { useDarkMode } from "@/hooks/use_dark_mode";
@@ -7,9 +7,9 @@ import * as SwitchPrimitives from "@radix-ui/react-switch"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
 
-const ThemeToggler = React.forwardRef<
-    React.ElementRef<typeof SwitchPrimitives.Root>,
-    React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+const ThemeToggler = forwardRef<
+    ElementRef<typeof SwitchPrimitives.Root>,
+    ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className }, ref) => {
     const { theme, toggleMode } = useDarkMode()
     return (
