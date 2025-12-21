@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "lint": "eslint . --ext md,mdx .",
+    "lint": "eslint .",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
