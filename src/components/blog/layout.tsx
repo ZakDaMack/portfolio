@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import QuickLinks from "@/components/home/quick_links";
+import QuickLinks from "@/components/footer";
 import {
     NavigationMenu,
     NavigationMenuContent,
