@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy gatsby content to Pages
+name: Deploy nextjs content to Pages
 
 on:
   workflow_dispatch:
@@ -20,27 +20,34 @@ concurrency:
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          static_site_generator: gatsby
-      - name: Install and Build
-        run: |
-          npm ci
-          npm run build
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Pages
+        id: setup_pages
+        uses: actions/configure-pages@v5
+    
+      - name: Build with Next.js
+        run: npm run build
+        env:
+          PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./out
 
   deploy:
-    name: Deploy
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

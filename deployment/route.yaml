@@ -6,7 +6,6 @@ metadata:
     app.kubernetes.io/name: portfolio
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
     - match: Host(`portfolio.k8s.zakhaven.uk`)

@@ -1,10 +1,12 @@
-import { faAward, faCode, faDesktop } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { StaticImage } from "gatsby-plugin-image";
+import { FC } from "react"
 import { motion } from "motion/react";
-import React from "react"
+
 import { cn } from "@/lib/utils";
-import { ShinyButton } from "../magicui/shiny-button";
+
+import Image from "next/image";
+import { ShinyButton } from "@/components/ui/shiny-button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAward, faCode, faDesktop } from "@fortawesome/free-solid-svg-icons";
 
 const skills = {
     'Front-end': [
@@ -19,7 +21,8 @@ const skills = {
         'Laravel',
         'C#',
         'Java',
-        'Golang'
+        'Golang',
+        'NodeJS'
     ],
     'Tools': [
         'Blockchain',
@@ -27,7 +30,7 @@ const skills = {
         'Docker',
         'Kubernetes',
         'Atlassian',
-        'Miccroservice Architecture'
+        'Microservice Architecture'
     ],
 }   
 
@@ -38,8 +41,7 @@ const cardProps = {
     viewport: { once: true }
 }
 
-const About: React.FC = () => {
-    
+const About: FC = () => {
     return (
         <section id="about" className={cn(
             "py-16 px-4 md:px-24 min-h-[90vh] relative",
@@ -48,17 +50,18 @@ const About: React.FC = () => {
             <div className="container max-w-[80em] mx-auto">
         
                 {/* intro */}
-                <div className="mx-auto px-4 my-16 md:my-24 max-w-screen-sm lg:max-w-screen-lg  text-center md:text-left">
+                <div className="mx-auto px-4 my-16 md:my-24 max-w-screen-sm lg:max-w-5xl text-center md:text-left">
                     <div className="flex gap-x-8 gap-y-4 flex-col md:flex-row items-center">
-                         <motion.div 
+                        <motion.div 
                             initial={{rotate: '-360deg', x: -200, opacity: 0}} 
                             whileInView={{rotate: '0deg', x: 0, opacity: 1}}
                             transition={{type: 'spring', duration: 1}}
                             viewport={{once: true}}
                         >
-                            <StaticImage 
-                                src='../../images/zakdowsett.png'
+                            <Image 
+                                src='/zakdowsett.png'
                                 alt="Zak Dowsett" 
+                                width={140} height={140}
                                 className="w-[140px] rounded-full drop-shadow-lg"
                             />
                         </motion.div>
