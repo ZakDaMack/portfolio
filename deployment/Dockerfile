@@ -5,6 +5,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN ls -laHr
+RUN tree ./content
 RUN npm run build
 
 # production stage
