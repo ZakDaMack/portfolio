@@ -17,17 +17,18 @@ const Header: FC<{
   blurHeight = 100,
  }) => {
   const [blurred, setBlurred] = useState<boolean>(false)
-  const onScroll = () => {
-    const scrollPos = window.scrollY
-    // setBlurred((blurHeight ?? window.innerHeight) < scrollPos)
-    setBlurred(blurHeight < scrollPos)
-  }
   
   // add listener
   useLayoutEffect(() => {
+    const onScroll = () => {
+      const scrollPos = window.scrollY
+      // setBlurred((blurHeight ?? window.innerHeight) < scrollPos)
+      setBlurred(blurHeight < scrollPos)
+    }
+
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [onScroll])
+  }, [setBlurred, blurHeight])
 
   return (
     <header className={cn(
