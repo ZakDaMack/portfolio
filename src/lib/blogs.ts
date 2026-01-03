@@ -8,8 +8,8 @@ import matter from 'gray-matter';
 
 import Blog from '@/interfaces/blog';
 
-const _articlesDirectory = path.join(process.execPath, 'content/blogs');
-const _imagesDirectory = path.join(process.execPath, 'public/images');
+const _articlesDirectory = path.join(process.cwd(), 'content/blogs');
+const _imagesDirectory = path.join(process.cwd(), 'public/images');
 
 export async function getMarkdownData(slug: string): Promise<string> {
     const fullPath = path.join(_articlesDirectory, `${slug}/index.mdx`);

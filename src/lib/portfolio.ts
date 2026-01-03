@@ -7,8 +7,8 @@ import html from 'remark-html';
 import { remark } from 'remark';
 import matter from 'gray-matter';
 
-const _portfolioDirectory = path.join(process.execPath, 'content/portfolio');
-const _imagesDirectory = path.join(process.execPath, 'public/images');
+const _portfolioDirectory = path.join(process.cwd(), 'content/portfolio');
+const _imagesDirectory = path.join(process.cwd(), 'public/images');
 
 export async function getMarkdownData(slug: string): Promise<string> {
   const fullPath = path.join(_portfolioDirectory, `${slug}/index.mdx`);
