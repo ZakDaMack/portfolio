@@ -28,7 +28,7 @@ const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
                     initial={{opacity: 0, y: 50}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true}}
-                    className='mx-auto pt-3 px-4 max-w-7xl'
+                    className='mx-auto pt-4 px-4 max-w-7xl'
                 >
                     <div className='rounded-3xl overflow-hidden relative'>
                         <Image
@@ -73,7 +73,7 @@ const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
               viewport={{once: true}} 
               transition={{delay: 0.2}}
               id='article__content' 
-              className='text-justify space-y-6 px-4 md:px-8 pt-6 pb-16 md:py-28 max-w-3xl mx-auto'
+              className='text-justify space-y-6 px-4 md:px-8 pt-6 pb-20 md:py-28 max-w-3xl mx-auto'
             >
 
                 {/* article info - mobile */}

@@ -28,13 +28,14 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
           <Head>
               <title>Blog | Zak Dowsett</title>
           </Head>
+
           <section className='hidden sm:block'>
             <FeaturedCarousel 
               blogs={blogs.slice(0, 3)}
             />
           </section>
 
-          <section className='px-12 pt-14 pb-28'>
+          <section className='px-4 pt-14 pb-28'>
             <div className='block sm:hidden mt-12' />
             <h1 className='text-5xl font-light'>Blog</h1>
             <p className='mt-2 mb-6 text-xl text-nord-3 dark:text-nord-4'>Browse the latest, occasionally made blog posts down below!</p>
