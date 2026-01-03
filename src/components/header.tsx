@@ -27,7 +27,7 @@ const Header: FC<{
   useLayoutEffect(() => {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [onScroll])
 
   return (
     <header className={cn(

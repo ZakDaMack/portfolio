@@ -25,7 +25,7 @@ const BlogPostEntry: React.FC<{
                         alt={blog.hero_attr}
                     />
                     <div className='absolute bottom-6 left-4'>
-                        {blog.tags.map((tag, i) => (
+                        {blog.tags.map((tag) => (
                             <span 
                                 key={tag} 
                                 className='rounded-3xl p-2 text-sm bg-black/10 text-nord-4 border border-nord-0 backdrop-blur-sm'

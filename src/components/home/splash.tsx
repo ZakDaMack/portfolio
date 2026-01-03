@@ -3,20 +3,21 @@
 import { FC, useRef, useState } from "react"
 
 import { Button } from "@/components/ui/button";
-import { motion, MotionValue, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance])
-}
+// function useParallax(value: MotionValue<number>, distance: number) {
+//   return useTransform(value, [0, 1], [-distance, distance])
+// }
 
 const Splash: FC = () => {
   const videoRef = useRef<HTMLVideoElement|null>(null);
   const [isPaused, setIsPaused] = useState(false)
 
   const toggle = () => {
-    videoRef.current?.paused ? videoRef.current?.play() : videoRef.current?.pause()
+    const trigger = videoRef.current?.paused ? videoRef.current?.play : videoRef.current?.pause;
+    trigger?.call(videoRef.current);
     setIsPaused(videoRef.current?.paused ?? false);
   }
 
