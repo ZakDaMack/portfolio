@@ -4,8 +4,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN ls -laHr
-RUN tree ./content
 RUN mkdir -p ./public/images
 RUN npm run build
 

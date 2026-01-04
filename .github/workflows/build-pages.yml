@@ -38,7 +38,9 @@ jobs:
         uses: actions/configure-pages@v5
     
       - name: Build with Next.js
-        run: npm run build
+        run: |
+          mkdir -p ./public/images
+          npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
 

@@ -1,4 +1,4 @@
-name: Validate Next.js Projectå
+name: Validate Next.js Project
 
 on:
   push:
