@@ -28,7 +28,7 @@ const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
                     initial={{opacity: 0, y: 50}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true}}
-                    className='mx-auto pt-4 px-4 max-w-7xl'
+                    className='mx-auto pt-24 px-4 max-w-7xl'
                 >
                     <div className='rounded-3xl overflow-hidden relative'>
                         <Image

@@ -17,7 +17,7 @@ const BlogPostEntry: React.FC<{
             className='space-y-2'
         >
             <Link href={blog.id}>
-                <div className='relative aspect-video rounded-2xl overflow-hidden group'>
+                <div className='relative aspect-video rounded-2xl overflow-hidden group border'>
                     <Image
                         src={blog.hero_img}
                         width={600} height={400}
