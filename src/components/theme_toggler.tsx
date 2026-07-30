@@ -16,7 +16,7 @@ const ThemeToggler = forwardRef<
         <SwitchPrimitives.Root
             ref={ref}
             checked={theme === 'dark'}
-            onCheckedChange={(_) => toggleMode()}
+            onCheckedChange={() => toggleMode()}
             className={cn(
               "peer inline-flex p-1 h-12 w-20 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 bg-nord-4 shadow-lg",
               className
@@ -33,4 +33,5 @@ const ThemeToggler = forwardRef<
     );
 });
 
+ThemeToggler.displayName = 'ThemeToggler';
 export default ThemeToggler;

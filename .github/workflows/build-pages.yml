@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy nextjs content to Pages
+name: Deploy Content to Pages
 
 on:
   workflow_dispatch:
@@ -38,7 +38,9 @@ jobs:
         uses: actions/configure-pages@v5
     
       - name: Build with Next.js
-        run: npm run build
+        run: |
+          mkdir -p ./public/images
+          npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
 

@@ -33,7 +33,7 @@ const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
   );
 }
 
-const getStaticProps: GetStaticProps<_HomeProps> = async ({ params }) => {
+const getStaticProps: GetStaticProps<_HomeProps> = async () => {
   // Get external data from the file system
   const portfolioData = await getAllItems()
   portfolioData.sort((a, b) => {

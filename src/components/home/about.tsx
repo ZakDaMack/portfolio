@@ -67,7 +67,7 @@ const About: FC = () => {
                         </motion.div>
                         <div className="text-2xl sm:text-4xl lg:text-6xl font-bold space-y-1">
                             <h2>
-                                Hi, I'm <span className="text-nord-10">Zak Dowsett</span>
+                                Hi, I&apos;m <span className="text-nord-10">Zak Dowsett</span>
                                 <motion.span 
                                     className="pl-3 origin-[70%_70%] inline-block" 
                                     initial={{rotate: '-8deg'}} 
@@ -79,7 +79,7 @@ const About: FC = () => {
                         </div>
                     </div>
                     <p className='mt-3 text-xl'>
-                        I'm a <span className="font-semibold">senior software engineer</span> with over <span className="font-semibold">6 years</span> of 
+                        I&apos;m a <span className="font-semibold">senior software engineer</span> with over <span className="font-semibold">6 years</span> of 
                         professional experience in all areas. I have worked on a variety of projects across the stack, from snazzy, 
                         front-end websites, all the way back to the infrastructure that runs your apps and services
                     </p>

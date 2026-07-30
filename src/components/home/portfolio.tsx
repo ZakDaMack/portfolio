@@ -17,7 +17,7 @@ const PortfolioSection: FC<{
 
                 <div className="pb-12">
                     <h2 className="text-5xl font-light">Portfolio</h2>
-                    <p className='mt-1 mb-4 text-xl text-nord-3 dark:text-nord-4'>Let's look at where I've worked and what I've done</p>
+                    <p className='mt-1 mb-4 text-xl text-nord-3 dark:text-nord-4'>Let&apos;s look at where I&apos;ve worked and what I&apos;ve done</p>
                 </div>
 
                 <div className='grid lg:grid-cols-2 gap-8'>
