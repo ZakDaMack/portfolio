@@ -6,13 +6,15 @@ import Footer from "@/components/footer";
 
 export default function RootLayout({
   children,
+  headerClassName
 }: Readonly<{
   children: ReactNode;
+  headerClassName?: string;
 }>) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        <Header className={headerClassName} />
         <main className="w-screen max-w-full">
           {children}
         </main>

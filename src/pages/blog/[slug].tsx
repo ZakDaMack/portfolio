@@ -19,7 +19,7 @@ interface _BlogPostPageProps {
 
 const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
     return (
-        <RootLayout>
+        <RootLayout headerClassName="[&>div]:max-w-screen-xl [&>div]:mx-auto [&>div]:px-6 px-0">
           <Head>
               <title>{data.title} | Zak Dowsett</title>
           </Head>
@@ -28,7 +28,7 @@ const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
                     initial={{opacity: 0, y: 50}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true}}
-                    className='mx-auto pt-3 px-4 max-w-7xl'
+                    className='mx-auto pt-3 px-4 max-w-screen-xl'
                 >
                     <div className='rounded-3xl overflow-hidden relative'>
                         <Image

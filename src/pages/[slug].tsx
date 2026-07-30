@@ -25,12 +25,12 @@ const PortfolioPage: FC<_PageProps> = ({ data, content }) => {
     const handleBack = () => router.back();
 
     return (
-      <RootLayout>
+      <RootLayout headerClassName="[&>div]:container [&>div]:mx-auto">
           <Head>
             <title>{data.name} | Zak Dowsett</title>
           </Head>
 
-          <article className='relative grid md:grid-cols-2 gap-8 p-4 pt-24'>
+          <article className='relative grid md:grid-cols-2 gap-8 p-4 pt-24 container mx-auto'>
             <div className='hidden md:block col-span-2'>
               <Button onClick={handleBack} className='rounded-2xl mt-4 cursor-pointer'>
                 <FontAwesomeIcon className='pr-2' icon={faArrowLeft} />
@@ -55,7 +55,7 @@ const PortfolioPage: FC<_PageProps> = ({ data, content }) => {
                 className='h-28 mb-8 object-left object-contain'
                 alt={`${data.name} logo`}
               />
-              <h1 className='text-5xl'>{data.name}</h1>
+              <h1 className='text-5xl mb-2'>{data.name}</h1>
               <p className='text-2xl text-neutral-500'>{data.summary}</p>
               <ul className='mt-6 text-sm flex flex-wrap gap-2'>
                 {data.skills.map(s => (

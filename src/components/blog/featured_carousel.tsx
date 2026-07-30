@@ -30,7 +30,7 @@ const FeaturedCarousel: FC<{ blogs: Blog[] }> = ({ blogs }) => {
     }
 
     return (
-        <Carousel setApi={setApi}>
+        <Carousel setApi={setApi} className="container mx-auto">
             <CarouselContent className="m-0">
                 {blogs.map((blog) => (
                     <CarouselItem key={blog.id} className="p-4!">
