@@ -24,7 +24,7 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
     }, [blogs, filter])
 
     return (
-        <RootLayout headerClassName="[&>div]:container [&>div]:mx-auto [&>div]:px-6">
+        <RootLayout headerClassName="[&>div]:container [&>div]:mx-auto [&>div]:px-4">
           <Head>
               <title>Blog | Zak Dowsett</title>
           </Head>

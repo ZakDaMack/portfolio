@@ -19,7 +19,7 @@ interface _BlogPostPageProps {
 
 const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
     return (
-        <RootLayout headerClassName="[&>div]:max-w-screen-xl [&>div]:mx-auto [&>div]:px-6 px-0">
+        <RootLayout headerClassName="[&>div]:max-w-screen-xl [&>div]:mx-auto [&>div]:px-4">
           <Head>
               <title>{data.title} | Zak Dowsett</title>
           </Head>
