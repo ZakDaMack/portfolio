@@ -53,7 +53,7 @@ const Splash: FC = () => {
             transition={{delay: 1}}
             className="text-center text-2xl sm:text-4xl pt-3 pointer-events-none whitespace-pre-wrap bg-linear-to-t from-white/80 to-slate-900/10 bg-clip-text font-semibold leading-none text-transparent"
           >
-            Dev Extraordinaire!
+            Turning ideas into production-ready software.
           </motion.h3>
         </div>
         <Button size='icon' variant='ghost' className="bg-transparent text-white absolute right-0 bottom-0 z-10" onClick={toggle}>
