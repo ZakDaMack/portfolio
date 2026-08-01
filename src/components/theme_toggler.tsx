@@ -6,31 +6,64 @@ import { useDarkMode } from "@/hooks/use_dark_mode";
 import * as SwitchPrimitives from "@radix-ui/react-switch"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
+import { MoonIcon, SunIcon } from "@phosphor-icons/react";
+import { motion } from "motion/react";
 
 const ThemeToggler = forwardRef<
     ElementRef<typeof SwitchPrimitives.Root>,
     ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className }, ref) => {
-    const { theme, toggleMode } = useDarkMode()
+    const { theme, toggleMode, setTheme } = useDarkMode()
+    const isDark = theme === "dark";
+
     return (
-        <SwitchPrimitives.Root
-            ref={ref}
-            checked={theme === 'dark'}
-            onCheckedChange={() => toggleMode()}
-            className={cn(
-              "peer inline-flex p-1 h-12 w-20 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 bg-nord-4 shadow-lg",
-              className
-            )}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: -20,
+          scale: 0.9,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+      >
+      <div className="flex rounded-full border border-white/15 bg-white/10 p-1 backdrop-blur-2xl">
+        {["light", "dark"].map((mode) => (
+          <button
+            key={mode}
+            onClick={() => setTheme(mode as 'light'|'dark')}
+            className="relative flex h-10 w-10 items-center justify-center cursor-pointer"
           >
-            <SwitchPrimitives.Thumb
-              className={cn(
-                "pointer-events-none h-10 w-10 rounded-full bg-background shadow-2xl ring-0 transition-transform data-[state=checked]:translate-x-7 data-[state=unchecked]:translate-x-0 grid"
+            {theme === mode && (
+              <motion.div
+                layoutId="theme-indicator"
+                transition={{
+                  type: "spring",
+                  stiffness: 450,
+                  damping: 30,
+                }}
+                className="absolute inset-0 rounded-full border border-white/20 bg-white/20 backdrop-blur-xl shadow-lg"
+              />
+            )}
+
+            <span className="relative z-10">
+              {mode === "light" ? (
+                <SunIcon size={18} />
+              ) : (
+                <MoonIcon size={18} />
               )}
-            >
-                <FontAwesomeIcon className="place-self-center" fontSize={20} icon={theme === 'light' ? faSun : faMoon} />
-            </SwitchPrimitives.Thumb>
-          </SwitchPrimitives.Root>
-    );
+            </span>
+          </button>
+        ))}
+      </div>
+    </motion.div>
+  );
 });
 
 ThemeToggler.displayName = 'ThemeToggler';

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import ThemeToggler from "./theme_toggler";
+import Icon from "./icon";
 
 const Header: FC<{
   className?: string;
@@ -41,12 +42,13 @@ const Header: FC<{
           forceBlur || blurred ? "bg-white/10 dark:bg-black/10  border backdrop-blur-md" : undefined
         )}>
           <Link className="text-foreground shadow-2xl" href="/">
-            <Image 
+            {/* <Image 
               src='/z.png'
               alt="Zak Dowsett" 
               width={100} height={100}
               className="w-12 h-12 rounded-full shadow-2xl"
-            />
+            /> */}
+            <Icon />
           </Link>
           <div className="grow" />
           <ThemeToggler />
