@@ -1,13 +1,10 @@
+import { motion } from "motion/react";
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
 
-import { cn } from "@/lib/utils";
 import { useDarkMode } from "@/hooks/use_dark_mode";
 
 import * as SwitchPrimitives from "@radix-ui/react-switch"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
 
 const ThemeToggler = forwardRef<
     ElementRef<typeof SwitchPrimitives.Root>,

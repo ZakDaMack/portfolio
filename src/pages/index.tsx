@@ -10,7 +10,7 @@ import Portfolio from "@/interfaces/portfolio";
 import Head from "next/head";
 import About from "@/components/home/about";
 import RootLayout from "@/components/layout";
-import Splash from "@/components/home/splash";
+import PhotoSplash from "@/components/home/photo_splash";
 import BlogSection from "@/components/home/blog";
 import PortfolioSection from "@/components/home/portfolio";
 
@@ -25,7 +25,7 @@ const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
       <Head>
         <title>Zak Dowsett</title>
       </Head>
-      <Splash />
+      <PhotoSplash />
       <About />
       <PortfolioSection data={portfolioData} />
       <BlogSection data={blogData} />
