@@ -22,7 +22,7 @@ const Icon: FC = () => (
         whileTap={{
           scale: 0.95,
         }}
-        className="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full"
+        className="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-nord-0"
     >
         {/* Animated glow */}
         <motion.div
@@ -42,11 +42,11 @@ const Icon: FC = () => (
         />
 
         {/* Gradient Border */}
-        <div className="absolute inset-0 rounded-full p-[1px]">
-          <div className="relative flex h-full w-full items-center justify-center rounded-fulll backdrop-blur-3xl">
+        <div className="absolute inset-0 rounded-full p-px">
+          <div className="relative flex h-full w-full items-center justify-center rounded-full backdrop-blur-3xl">
             {/* Glass reflection */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
-              <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-1/2 bg-linear-to-b from-white/20 to-transparent" />
             </div>
 
             {/* Electric edge */}
@@ -58,7 +58,7 @@ const Icon: FC = () => (
             {/* Logo */}
             <motion.div
                 whileHover="hover"
-                className="relative flex items-end gap-[2px]"
+                className="relative flex items-end gap-0.5"
             >
                 <span className="text-xl font-bold text-white">
                     Z
@@ -78,9 +78,8 @@ const Icon: FC = () => (
                         damping: 20,
                     }}
                     className="
-                        mb-[6px]
-                        h-1
-                        w-1
+                        mb-1.5
+                        size-1
                         rounded-[1px]
                         bg-cyan-400
                         shadow-[0_0_12px_rgba(34,211,238,.8)]

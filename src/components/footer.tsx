@@ -1,44 +1,26 @@
 import { FC } from "react"
 
-import { Dock, DockIcon } from "./ui/dock";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
-import { faDocker, faGithubAlt, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { GithubLogoIcon, LinkedinLogoIcon, EnvelopeIcon, ShippingContainerIcon } from "@phosphor-icons/react"
-
 const links = [
-  { icon: GithubLogoIcon, href: "https://github.com/ZakDaMack/", label: "GitHub" },
-  { icon: LinkedinLogoIcon, href: "https://linkedin.com/in/zak-dowsett-4a7455131/", label: "LinkedIn" },
-  { icon: EnvelopeIcon, href: "mailto:z.dowsett@outlook.com", label: "Email" },
-  { icon: ShippingContainerIcon, href: "https://hub.docker.com/u/zakdamack/", label: "Docker" }
+  { href: "https://github.com/ZakDaMack/", label: "GitHub" },
+  { href: "https://linkedin.com/in/zak-dowsett-4a7455131/", label: "LinkedIn" },
+  { href: "https://hub.docker.com/u/zakdamack/", label: "Docker" }
 ];
 
 const Footer: FC = () => (
-  <footer className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20">
-    <TooltipProvider>
-      <Dock direction="middle" className="rounded-full border border-white/15 bg-white/10 p-1 backdrop-blur-2xl">
-        {links.map((item) => (
-          <DockIcon key={item.label}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  aria-label={item.label}
-                  className="text-xl rounded-full w-10 h-10 hover:bg-neutral-800/20 grid group"
-                >
-                  <item.icon className="text-foreground place-self-center group-hover:scale-150 origin-bottom transition-all duration-300" />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
+  <footer className="py-6 border-t border-nord-4">
+    <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4 justify-between">
+      <p>&#169; {new Date().getFullYear()} Zak Dowsett</p>
+      <a href="mailto:z.dowsett@outlook.com" className="text-nord-10">z.dowsett@outlook.com</a>
+      <div className="grow" />
+      <div>
+        {links.map((link, i) => (
+          <>
+            <a href={link.href} className="text-nord-10">{link.label}</a>
+            {i != links.length - 1 && (<span className='px-2 text-sm text-nord-10'>&#x2022;</span>)}
+          </>
         ))}
-      </Dock>
-    </TooltipProvider>
+      </div>
+    </div>
   </footer>
 );
 

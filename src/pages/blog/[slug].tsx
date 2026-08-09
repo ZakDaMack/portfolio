@@ -7,10 +7,10 @@ import { cn } from '@/lib/utils';
 import { getBlogData, getMarkdownData, getPaths } from '@/lib/blogs';
 
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import RootLayout from '@/components/layout';
+import Link from '@/components/link';
 
 interface _BlogPostPageProps {
   data: Blog;
@@ -18,74 +18,55 @@ interface _BlogPostPageProps {
 }
 
 const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
+    const words = body.split(' ')
+    const mins = Math.ceil(words.length / 200) // words / words per min avg
+
     return (
-        <RootLayout headerClassName="[&>div]:max-w-screen-xl [&>div]:mx-auto [&>div]:px-4">
+        <RootLayout>
           <Head>
               <title>{data.title} | Zak Dowsett</title>
           </Head>
-            <article>
-                <motion.section 
-                    initial={{opacity: 0, y: 50}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true}}
-                    className='mx-auto pt-24 px-4 max-w-screen-xl'
-                >
-                    <div className='rounded-3xl overflow-hidden relative'>
-                        <Image
-                            src={data.hero_img}
-                            width={1200} height={600}
-                            className='w-full aspect-video object-cover'
-                            alt={data.hero_attr}
-                        />
-                        <div className='absolute top-0 bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent hidden md:flex flex-col justify-end p-6'>
-                  
-                        {/* tags */}
-                        <div>
-                            {data.tags.map((tag) => (
-                                <Link 
-                                    key={tag}
-                                    className='rounded-3xl p-3 bg-black/10 text-nord-4 border border-nord-0 backdrop-blur-sm'
-                                    // href={`/tags/${tag.toLowerCase()}`}
-                                    href='#'
-                                >{tag}</Link>
-                            ))}
-                        </div>
 
-                        {/* article info */}
-                        <div className='md:flex justify-between items-end my-8'>
-                            <div className='space-y-3 max-w-4xl'>
-                                <h1 className='text-3xl md:text-5xl text-nord-6 font-bold'>{data.title}</h1>
-                                <p className='text-lg text-neutral-400'>{data.subtitle}</p>
-                            </div>
-                            <div>
-                                <p className='text-nord-6'>{data.formatted_date}</p>
-                            </div>
-                        </div>
-                  
-                </div>
-              </div>
-              <p className='text-sm pl-4'>{data.hero_attr}</p>
-            </motion.section>
+          {/* Intro */}
+          <section id='intro' className='pt-20 pb-16 text-center container max-w-[45em] mx-auto space-y-4 px-4'>
+            <p className="text-nord-10">
+                <span>{data.tags[0]}</span>
+                <span className='text-sm px-1'>&#x2022;</span>
+                <span>{data.formatted_date}</span>
+                <span className='text-sm px-1'>&#x2022;</span>
+                <span>{mins} min read</span>
+            </p>
+            <h1 className="text-3xl md:text-6xl font-bold">{data.title}</h1>
+            <h2 className="text-nord-3 text-lg md:text-xl">{data.subtitle}</h2>
+          </section>
 
+          {/* Image */}
             <motion.section 
-              initial={{opacity: 0, y: 50}}
-              whileInView={{opacity: 1, y: 0}}
-              viewport={{once: true}} 
-              transition={{delay: 0.2}}
-              id='article__content' 
-              className='text-justify space-y-6 px-4 md:px-8 pt-6 pb-20 md:py-28 max-w-3xl mx-auto'
+                initial={{opacity: 0, y: 50}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true}}
+                className='mx-auto px-4 max-w-5xl'
             >
+                <div className='rounded-3xl overflow-hidden'>
+                    <Image
+                        src={data.hero_img}
+                        width={1200} height={600}
+                        className='w-full aspect-video object-cover'
+                        alt={data.hero_attr}
+                    />
+            </div>
+            <p className='text-sm pl-4'>{data.hero_attr}</p>
+        </motion.section>
 
-                {/* article info - mobile */}
-                <div className='block md:hidden mb-8 text-left'>
-                    <div className='space-y-3'>
-                        <h1 className='text-2xl font-bold'>{data.title}</h1>
-                        <p className='text-lg text-neutral-400'>{data.subtitle}</p>
-                    </div>
-                    <p>{data.date}</p>
-                    <div className='border mt-6' />
-                </div>
-
+        {/* Main body */}
+            <motion.section 
+                initial={{opacity: 0, y: 50}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true}} 
+                transition={{delay: 0.2}}
+                id='article__content' 
+                className='text-justify space-y-6 px-4 pt-12 md:px-8 max-w-3xl mx-auto'
+            >
                 <div className={cn(
                     "text-justify space-y-6",
                     "[&_pre]:bg-nord-5 [&_pre]:p-3 [&_pre]:text-sm [&_pre]:rounded [&_pre]:overflow-x-auto",
@@ -101,7 +82,23 @@ const BlogPostPage: FC<_BlogPostPageProps> = ({ data, body }) => {
                     "dark:[&_span+em]:text-nord-4"
                 )} dangerouslySetInnerHTML={{__html: body}}></div>
             </motion.section>
-          </article>
+
+            {/* Author */}
+            <section className='max-w-2xl mx-auto bg-nord-5 rounded-4xl py-4 px-3 flex gap-3 my-6'>
+                <Image 
+                    src='/zakdowsett.png'
+                    alt='Zak Dowsett'
+                    width={80}
+                    height={80}
+                    className='rounded-full'
+                />
+                <div>
+                    <p>Zak Dowsett</p>
+                    <p>Senior Software Engineer. Writes about my homelabbing and security projects.</p>
+                </div>
+                <Link href='/'>About</Link>
+            </section>
+
       </RootLayout>
     );
 }

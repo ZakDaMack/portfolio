@@ -35,7 +35,7 @@ const ThemeToggler = forwardRef<
           <button
             key={mode}
             onClick={() => setTheme(mode as 'light'|'dark')}
-            className="relative flex h-10 w-10 items-center justify-center cursor-pointer"
+            className="relative flex h-8 w-8 items-center justify-center cursor-pointer"
           >
             {theme === mode && (
               <motion.div
@@ -51,9 +51,9 @@ const ThemeToggler = forwardRef<
 
             <span className="relative z-10">
               {mode === "light" ? (
-                <SunIcon size={18} />
+                <SunIcon size={14} />
               ) : (
-                <MoonIcon size={18} />
+                <MoonIcon size={14} />
               )}
             </span>
           </button>

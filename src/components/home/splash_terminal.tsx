@@ -5,17 +5,13 @@ import { cn } from "@/lib/utils"
 import { AnimatedSpan, Terminal, TypingAnimation } from "../ui/terminal"
 
 export interface SplashTerminalProps {
-  /** Which edge the terminal sits on; controls which way it angles inward */
   side?: "left" | "right"
   children: React.ReactNode
 }
 
-/** Glass terminal shell, angled inward from whichever edge it sits on. */
 export function SplashTerminal({ side = "left", children }: SplashTerminalProps) {
   return (
     <div className="perspective-midrange">
-      {/* Rotation lives on the wrapper, not on the blurred surface: Firefox
-          drops backdrop-filter when the same element carries a 3D transform. */}
       <div className={side === "left" ? "rotate-y-30" : "-rotate-y-30"}>
         <Terminal
           className={cn(
@@ -31,8 +27,36 @@ export function SplashTerminal({ side = "left", children }: SplashTerminalProps)
   )
 }
 
-/** Blank output row — keeps the sequence pacing between blocks. */
 const Blank = () => <AnimatedSpan>&nbsp;</AnimatedSpan>
+
+type TokenProps = { children: React.ReactNode }
+
+const Kw = ({ children }: TokenProps) => (
+  <span className="text-nord-9">{children}</span>
+)
+
+const Fn = ({ children }: TokenProps) => (
+  <span className="text-nord-8">{children}</span>
+)
+
+const Ty = ({ children }: TokenProps) => (
+  <span className="text-nord-7">{children}</span>
+)
+const Str = ({ children }: TokenProps) => (
+  <span className="text-nord-14">{children}</span>
+)
+
+const Num = ({ children }: TokenProps) => (
+  <span className="text-nord-15">{children}</span>
+)
+
+const Pun = ({ children }: TokenProps) => (
+  <span className="text-nord-6">{children}</span>
+)
+
+const Line = ({ children }: TokenProps) => (
+  <AnimatedSpan className="inline text-nord-4">{children}</AnimatedSpan>
+)
 
 export function InstallTerminal({ side }: Pick<SplashTerminalProps, "side">) {
   return (
@@ -67,7 +91,7 @@ export function InstallTerminal({ side }: Pick<SplashTerminalProps, "side">) {
       </AnimatedSpan>
       <Blank />
       <AnimatedSpan className="text-nord-4 inline">
-        &gt; <span className="animate-wiggle">_</span>
+        &gt; <span className="animate-blink">_</span>
       </AnimatedSpan>
     </SplashTerminal>
   )
@@ -80,49 +104,71 @@ export function ReactCodeTerminal({ side }: Pick<SplashTerminalProps, "side">) {
         zak@portfolio:~/app$ cat pages/home.tsx
       </TypingAnimation>
       <Blank />
-      <AnimatedSpan className="text-nord-14">{'"use client"'}</AnimatedSpan>
+      <Line>
+        <Str>{'"use client"'}</Str>
+      </Line>
       <Blank />
-      <AnimatedSpan className="text-nord-8">
-        {"const Home: FC<HomeProps> = ({ title }) => {"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-4">
-        {"  const [ready, setReady] = useState(false)"}
-      </AnimatedSpan>
+      <Line>
+        <Kw>const</Kw>{" "}<Ty>Home</Ty><Pun>:</Pun>{" "}<Ty>FC</Ty>
+        <Pun>{"<"}</Pun><Ty>HomeProps</Ty><Pun>{">"}</Pun>{" = "}
+        <Pun>{"({"}</Pun>{" title "}<Pun>{"})"}</Pun>{" "}<Kw>{"=>"}</Kw>{" "}
+        <Pun>{"{"}</Pun>
+      </Line>
+      <Line>
+        {"  "}<Kw>const</Kw>{" "}<Pun>[</Pun>{"ready, setReady"}<Pun>]</Pun>
+        {" = "}<Fn>useState</Fn><Pun>(</Pun><Kw>false</Kw><Pun>)</Pun>
+      </Line>
       <Blank />
-      <AnimatedSpan className="text-nord-8">
-        {"  useEffect(() => {"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-4">
-        {"    const t = setTimeout(() => setReady(true), 300)"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-15">
-        {"    return () => clearTimeout(t)"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-4">{"  }, [])"}</AnimatedSpan>
+      <Line>
+        {"  "}<Fn>useEffect</Fn><Pun>{"(()"}</Pun>{" "}<Kw>{"=>"}</Kw>{" "}
+        <Pun>{"{"}</Pun>
+      </Line>
+      <Line>
+        {"    "}<Kw>const</Kw>{" t = "}<Fn>setTimeout</Fn><Pun>{"(()"}</Pun>
+        {" "}<Kw>{"=>"}</Kw>{" "}<Fn>setReady</Fn><Pun>(</Pun><Kw>true</Kw>
+        <Pun>{"),"}</Pun>{" "}<Num>300</Num><Pun>)</Pun>
+      </Line>
+      <Line>
+        {"    "}<Kw>return</Kw>{" "}<Pun>{"()"}</Pun>{" "}<Kw>{"=>"}</Kw>{" "}
+        <Fn>clearTimeout</Fn><Pun>(</Pun>{"t"}<Pun>)</Pun>
+      </Line>
+      <Line>
+        {"  "}<Pun>{"}, [])"}</Pun>
+      </Line>
       <Blank />
-      <AnimatedSpan className="text-nord-8">{"  return ("}</AnimatedSpan>
-      <AnimatedSpan className="text-nord-7">
-        {"    <motion.section"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-13">
-        {"      animate={ready ? show : hide}"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-14">
-        {'      className="grid place-items-center"'}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-7">{"    >"}</AnimatedSpan>
-      <AnimatedSpan className="text-nord-7">
-        {"      <h1>{title}</h1>"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-7">
-        {"    </motion.section>"}
-      </AnimatedSpan>
-      <AnimatedSpan className="text-nord-8">{"  )"}</AnimatedSpan>
-      <AnimatedSpan className="text-nord-8">{"}"}</AnimatedSpan>
+      <Line>
+        {"  "}<Kw>return</Kw>{" "}<Pun>(</Pun>
+      </Line>
+      <Line>
+        {"    "}<Pun>{"<"}</Pun><Ty>motion.section</Ty>
+      </Line>
+      <Line>
+        {"      animate="}<Pun>{"{"}</Pun>{"ready "}<Kw>?</Kw>{" show "}
+        <Kw>:</Kw>{" hide"}<Pun>{"}"}</Pun>
+      </Line>
+      <Line>
+        {"      className="}<Str>{'"grid place-items-center"'}</Str>
+      </Line>
+      <Line>
+        {"    "}<Pun>{">"}</Pun>
+      </Line>
+      <Line>
+        {"      "}<Pun>{"<"}</Pun><Ty>h1</Ty><Pun>{">{"}</Pun>{"title"}
+        <Pun>{"}</"}</Pun><Ty>h1</Ty><Pun>{">"}</Pun>
+      </Line>
+      <Line>
+        {"    "}<Pun>{"</"}</Pun><Ty>motion.section</Ty><Pun>{">"}</Pun>
+      </Line>
+      <Line>
+        {"  "}<Pun>)</Pun>
+      </Line>
+      <Line>
+        <Pun>{"}"}</Pun>
+      </Line>
       <Blank />
-        <AnimatedSpan className="text-nord-4">
-            {"export default Home;"}
-        </AnimatedSpan>
+      <Line>
+        <Kw>export default</Kw>{" "}<Ty>Home</Ty><Pun>;</Pun>
+      </Line>
     </SplashTerminal>
   )
 }

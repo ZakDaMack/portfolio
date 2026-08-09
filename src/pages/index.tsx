@@ -10,9 +10,11 @@ import Portfolio from "@/interfaces/portfolio";
 import Head from "next/head";
 import About from "@/components/home/about";
 import RootLayout from "@/components/layout";
-import PhotoSplash from "@/components/home/photo_splash";
+import Splash from "@/components/home/splash";
 import BlogSection from "@/components/home/blog";
+import WorkGrid from "@/components/home/work_grid";
 import PortfolioSection from "@/components/home/portfolio";
+import StatsBanner from "@/components/home/stats_banner";
 
 interface _HomeProps {
   portfolioData: Portfolio[];
@@ -25,10 +27,12 @@ const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
       <Head>
         <title>Zak Dowsett</title>
       </Head>
-      <PhotoSplash />
+      <Splash />
+      <WorkGrid />
+      <StatsBanner />
       <About />
-      <PortfolioSection data={portfolioData} />
-      <BlogSection data={blogData} />
+      {/* <PortfolioSection data={portfolioData} /> */}
+      {/* <BlogSection data={blogData} /> */}
     </RootLayout>
   );
 }

@@ -4,19 +4,28 @@ import { useEffect, useState } from "react";
 
 const themeKey = "THEME";
 
+type Theme = 'light' | 'dark';
+
+const readStoredTheme = (): Theme => {
+    const stored = localStorage.getItem(themeKey);
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
 export const useDarkMode = () => {
-    // set theme, get from local storage, if null, set to light
-    const themeOnLoad = typeof window !== "undefined" 
-        && (localStorage.getItem(themeKey) === 'dark'
-        || (!(themeKey in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) 
-        ? 'dark' : 'light';
-    const [theme, setTheme] = useState<'light'|'dark'>(themeOnLoad);
+    const [theme, setTheme] = useState<Theme>('light');
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setTheme(readStoredTheme());
+        setMounted(true);
+    }, []);
 
     const toggleMode = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
 
     // on theme change, apply to html
     useEffect(() => {
-        if (typeof window === "undefined") return;
+        if (!mounted) return;
 
         const root = window.document.documentElement;
         const currentColour = theme === 'dark' ? 'light' : 'dark'
@@ -25,7 +34,7 @@ export const useDarkMode = () => {
 
         // save theme to local storage
         localStorage.setItem(themeKey, theme);
-    }, [theme]);
+    }, [theme, mounted]);
 
-    return { theme, setTheme, toggleMode }
+    return { theme, setTheme, toggleMode, mounted }
 }
