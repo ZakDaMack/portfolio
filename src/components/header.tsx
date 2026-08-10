@@ -34,13 +34,15 @@ const Header: FC<{
 
   return (
     <header className={cn(
-      "z-20 fixed t-0 w-full",
-      blurred ? "bg-white/10 dark:bg-black/10 border-b backdrop-blur-md" : "p-4",
+      "z-20 fixed t-0 w-full border-b transition-all duration-300",
+      blurred
+        ? "bg-white/10 dark:bg-black/10 border-border backdrop-blur-md"
+        : "p-4 bg-transparent border-transparent backdrop-blur-[0px]",
       className
     )}>
       <div className={cn(
-        "flex items-center gap-4 p-2 transition-all duration-300",
-        blurred ? "container mx-auto" : undefined,
+        "flex items-center gap-4 p-2 mx-auto transition-all duration-300",
+        blurred ? "container" : "max-w-full",
       )}>
           <Link className="text-foreground" href="/">
             <Icon />
