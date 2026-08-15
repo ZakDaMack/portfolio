@@ -94,7 +94,7 @@ const Splash: FC = () => {
               transition={{ delay: 1 }}
               className="flex justify-center gap-6 pt-10"
             >
-              <Link href="/resume.pdf" target='_blank' element="a">View my CV</Link>
+              <Link href="/zaks_cv.pdf" target='_blank' element="a">View my CV</Link>
               <Link href="/blog">Read a case study</Link>
             </motion.div>
 

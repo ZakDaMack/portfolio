@@ -38,6 +38,7 @@ const Header: FC<{
       blurred
         ? "bg-white/10 dark:bg-black/10 border-border backdrop-blur-md"
         : "p-4 bg-transparent border-transparent backdrop-blur-[0px]",
+      `header-${blurred ? 'blurred' : 'unblurred'}`,
       className
     )}>
       <div className={cn(
@@ -52,8 +53,8 @@ const Header: FC<{
 
           <nav>
             <ul className={cn(
-              "flex items-center gap-6 list-none [&_a]:font-light",
-              blurred ? "[&_a]:hover:text-foreground [&_a]:text-foreground" : "[&_a]:hover:text-nord-6 [&_a]:text-nord-6",
+              "flex items-center gap-6 list-none [&_a]:font-light [&_a]:hover:text-foreground [&_a]:text-foreground",
+              // blurred ? "[&_a]:hover:text-foreground [&_a]:text-foreground" : "[&_a]:hover:text-nord-6 [&_a]:text-nord-6",
             )}>
               <li>
                 <Link href="/">Home</Link>
@@ -63,7 +64,7 @@ const Header: FC<{
               </li>
               <li>
                 <Button asChild className="rounded-4xl bg-nord-9">
-                  <a href="/resume.pdf" target='_blank' className='text-foreground hover:no-underline!'>My CV</a>
+                  <a href="/zaks_cv.pdf" target='_blank' className='text-foreground hover:no-underline!'>My CV</a>
                 </Button>
               </li>
             </ul>

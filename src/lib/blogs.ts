@@ -6,7 +6,7 @@ import html from 'remark-html';
 import { remark } from 'remark';
 import matter from 'gray-matter';
 
-import Blog from '@/interfaces/blog';
+import Blog, { BlogType } from '@/interfaces/blog';
 
 const _articlesDirectory = path.join(process.cwd(), 'content/blogs');
 const _imagesDirectory = path.join(process.cwd(), 'public/images');
@@ -68,6 +68,8 @@ export async function getBlogData(slug: string): Promise<Blog> {
     tags: matterResult.data.tags,
     date: matterResult.data.date,
     formatted_date: dayjs(matterResult.data.date).format('D MMMM, YYYY'),
+    type: matterResult.data.type ?? BlogType.Article,
+    case_study: matterResult.data.case_study ?? null,
   };
 }
 

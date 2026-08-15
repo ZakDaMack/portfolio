@@ -11,9 +11,7 @@ import Head from "next/head";
 import About from "@/components/home/about";
 import RootLayout from "@/components/layout";
 import Splash from "@/components/home/splash";
-import BlogSection from "@/components/home/blog";
 import WorkGrid from "@/components/home/work_grid";
-import PortfolioSection from "@/components/home/portfolio";
 import StatsBanner from "@/components/home/stats_banner";
 
 interface _HomeProps {
@@ -23,7 +21,7 @@ interface _HomeProps {
 
 const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
   return (
-    <RootLayout>
+    <RootLayout headerClassName="[&.header-unblurred_a]:text-nord-6!">
       <Head>
         <title>Zak Dowsett</title>
       </Head>
@@ -31,8 +29,6 @@ const Home: FC<_HomeProps> = ({ portfolioData, blogData }) => {
       <WorkGrid />
       <StatsBanner />
       <About />
-      {/* <PortfolioSection data={portfolioData} /> */}
-      {/* <BlogSection data={blogData} /> */}
     </RootLayout>
   );
 }

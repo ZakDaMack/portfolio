@@ -1,0 +1,38 @@
+---
+title: "Training software that keeps up with 100,000 athletes."
+subtitle: "Backend, infrastructure and delivery"
+date: "2026-08-08"
+hero_img: ./1fit_casestudy.jpg
+hero_attr: "The 1FIT training platform"
+published: true
+type: "case-study"
+tags: ["Case Study"]
+case_study:
+  company: "1FIT"
+  role: "Senior Software Engineer"
+  skills:
+    - "React"
+    - "Laravel"
+    - "Amazon ECS"
+    - "Docker"
+    - "Flutter"
+  stats:
+    - value: 100
+      suffix: "k+"
+      subtext: "users on platform"
+    - suffix: "Millions"
+      subtext: "of rows processed daily"
+    - prefix: "-"
+      value: 80
+      suffix: "%"
+      subtext: "deployment time"
+  problem: "Trainers build plans, clients log progress, and every rep, set and measurement lands in the database — millions of rows a day at 100k+ daily users. The release process couldn't keep pace: deploys were slow, manual, and nerve-racking enough that nobody shipped on Fridays. Or Thursdays."
+  decisions:
+    - title: "Containerise everything"
+      description: "Docker plus a CI/CD pipeline owning build, test and release. Deployment time fell 80% — shipping stopped being an event."
+    - title: "Event-driven at the core"
+      description: "High-volume, bursty writes run through an event-driven pipeline: the write path stays fast, consumers aggregate at their own pace."
+    - title: "Make the pipeline everyone's"
+      description: "Documented the release path and paired with the team until deploying was a non-event for everyone."
+  outcome: "A platform that scales with its data and a team that ships without ceremony. The interesting part was never the tooling — it was making reliability the default."
+---

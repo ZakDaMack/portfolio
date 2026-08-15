@@ -43,10 +43,13 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
           <section className='px-4 pt-6 pb-28 container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             {blogs.map((blog, i) => (
               <div key={blog.id} className={cn(
-                'rounded-4xl bg-nord-5 group grid overflow-hidden',
-                i === 0 ? 'sm:col-span-3 sm:grid-cols-2' : undefined
+                'relative rounded-4xl bg-nord-5 group grid overflow-hidden',
+                i === 0 ? 'sm:col-span-3 sm:grid-cols-2' : 'grid-rows-[auto_1fr]'
               )}>
-                <div className='overflow-hidden'>
+                <div className={cn(
+                  'overflow-hidden',
+                  i !== 0 ? 'aspect-video' : undefined
+                )}>
                   <Image
                     src={blog.hero_img}
                     width={600} height={400}
@@ -54,11 +57,11 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
                     alt={blog.hero_attr}
                   />
                 </div>
-                <div className='p-12 space-y-4'>
+                <div className='p-12 flex flex-col gap-4'>
                   <div className='uppercase text-nord-3'>{i == 0 && <>Latest</>} {blog.tags[0]} {blog.formatted_date}</div>
                   <h2 className='font-bold text-4xl'>{blog.title}</h2>
                   <p className='text-nord-3'>{blog.subtitle}</p>
-                  <Link href={blog.id}>Read the post</Link>
+                  <Link href={blog.id} className="mt-auto after:absolute after:inset-0 after:content-['']">Read the post</Link>
                 </div>
               </div>
             ))}

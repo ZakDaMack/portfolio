@@ -11,7 +11,7 @@ const entries: {
     subtext: string;
 }[] = [
     {
-        value: 6,
+        value: 7,
         suffix: '+',
         subtext: 'years shipping software'
     },
@@ -21,8 +21,8 @@ const entries: {
         subtext: 'users served daily'
     },
     {
-        value: undefined,
-        suffix: 'Millions',
+        value: 20,
+        suffix: 'm+',
         subtext: 'of rows handled daily'
     },
     {
@@ -38,7 +38,7 @@ const StatsBanner: FC = () => (
         <div className='container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16'>
             {entries.map(e => (
                 <div className="text-center text-nord-10">
-                    <p className='text-4xl md:text-6xl mb-4'>
+                    <p className='text-4xl md:text-6xl mb-4 tracking-tight'>
                         <span>{e.prefix}</span>
                         {!!e.value && <NumberTicker value={e.value} className="text-nord-10!" />}
                         <span>{e.suffix}</span>
