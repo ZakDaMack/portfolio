@@ -62,8 +62,8 @@ const About: FC = () => {
         
                 {/* Intro */}
                 <div className="mx-auto max-w-5xl self-center space-y-4">
-                    <h2 className="text-6xl font-bold">Hi, I&apos;m Zak.</h2>
-                    <p className='text-xl'>
+                    <h2 className="text-3xl sm:text-6xl font-bold">Hi, I&apos;m Zak.</h2>
+                    <p className='sm:text-xl'>
                         I&apos;m a <span className="font-semibold">senior software engineer</span> with over <span className="font-semibold">6 years</span> of 
                         professional experience in all areas. I have worked on a variety of projects across the stack, from snazzy, 
                         front-end websites, all the way back to the infrastructure that runs your apps and services

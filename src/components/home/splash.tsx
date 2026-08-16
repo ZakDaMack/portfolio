@@ -41,7 +41,7 @@ const Splash: FC = () => {
 
         {/* Container */}
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-linear-to-t from-black/80 to-transparent">
-          <div className="relative flex h-full flex-col gap-3 justify-center">
+          <div className="relative flex h-full flex-col gap-6 sm:gap-3 justify-center">
 
             {/* Looking for opportunities toast */}
             <motion.div 
@@ -63,7 +63,7 @@ const Splash: FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-white to-white/60 bg-clip-text text-center text-2xl sm:text-[8rem] font-semibold leading-none text-transparent"
+              className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-white to-white/60 bg-clip-text text-center text-3xl sm:text-[8rem] font-semibold leading-none text-transparent"
             >
               Zak Dowsett
             </motion.h2>

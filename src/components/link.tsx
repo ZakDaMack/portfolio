@@ -15,7 +15,7 @@ interface LinkProps {
 
 const Link: FC<LinkProps> = ({ href, children, element: Element = NextLink, target, className }) => {
   return (
-    <Element href={href} target={target} className={cn('text-nord-10 font-light **:inline', className)}>
+    <Element href={href} target={target} className={cn('text-nord-10 dark:text-nord-8 font-light **:inline', className)}>
       <span>{children}</span><CaretRightIcon size={18} weight="bold" className="pb-1 pl-1" />
     </Element>
   );

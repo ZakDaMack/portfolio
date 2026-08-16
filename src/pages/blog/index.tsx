@@ -34,16 +34,16 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
 
           {/* Intro */}
           <section id='intro' className='pt-20 pb-16 text-center container max-w-[45em] mx-auto space-y-4 px-4'>
-            <p className="text-nord-10">Writing</p>
-            <h1 className="text-6xl font-bold">Notes from the homelab.</h1>
-            <h2 className="text-nord-3 text-xl">Network security, infrastructure and the occasional £40 gadget. Written so future me can follow along.</h2>
+            <p className="text-nord-10 dark:text-nord-8">Writing</p>
+            <h1 className="text-4xl sm:text-6xl font-bold">Notes from the homelab.</h1>
+            <h2 className="text-nord-3 dark:text-nord-4 sm:text-xl">Network security, infrastructure and the occasional £40 gadget. Written so future me can follow along.</h2>
           </section>
 
           {/* Blog posts */}
           <section className='px-4 pt-6 pb-28 container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             {blogs.map((blog, i) => (
               <div key={blog.id} className={cn(
-                'relative rounded-4xl bg-nord-5 group grid overflow-hidden',
+                'relative rounded-4xl bg-card group grid overflow-hidden',
                 i === 0 ? 'sm:col-span-3 sm:grid-cols-2' : 'grid-rows-[auto_1fr]'
               )}>
                 <div className={cn(
@@ -57,10 +57,10 @@ const Home: FC<BlogProps> = ({ blogs, tags }) => {
                     alt={blog.hero_attr}
                   />
                 </div>
-                <div className='p-12 flex flex-col gap-4'>
-                  <div className='uppercase text-nord-3'>{i == 0 && <>Latest</>} {blog.tags[0]} {blog.formatted_date}</div>
-                  <h2 className='font-bold text-4xl'>{blog.title}</h2>
-                  <p className='text-nord-3'>{blog.subtitle}</p>
+                <div className='p-6 sm:p-12 flex flex-col gap-4'>
+                  <div className='uppercase text-foreground text-sm'>{i == 0 && <>Latest</>} {blog.tags[0]} {blog.formatted_date}</div>
+                  <h2 className='font-bold text-2xl sm:text-4xl'>{blog.title}</h2>
+                  <p className='text-foreground'>{blog.subtitle}</p>
                   <Link href={blog.id} className="mt-auto after:absolute after:inset-0 after:content-['']">Read the post</Link>
                 </div>
               </div>

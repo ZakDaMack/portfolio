@@ -25,7 +25,7 @@ const ArticlePost: FC<{
 
           {/* Intro */}
           <section id='intro' className='pt-20 pb-16 text-center container max-w-[45em] mx-auto space-y-4 px-4'>
-            <p className="text-nord-10">
+            <p className="text-nord-10 dark:text-nord-8">
                 <span>{data.tags[0]}</span>
                 <span className='text-sm px-1'>&#x2022;</span>
                 <span>{data.formatted_date}</span>
@@ -33,23 +33,23 @@ const ArticlePost: FC<{
                 <span>{mins} min read</span>
             </p>
             <h1 className="text-3xl md:text-6xl font-bold">{data.title}</h1>
-            <h2 className="text-nord-3 text-lg md:text-xl">{data.subtitle}</h2>
+            <h2 className="text-nord-3 dark:text-nord-4 md:text-xl">{data.subtitle}</h2>
           </section>
 
-          {/* Image */}
-            <motion.section
-                initial={{opacity: 0, y: 50}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true}}
-                className='mx-auto px-4 max-w-5xl'
-            >
-                <div className='rounded-3xl overflow-hidden'>
-                    <Image
-                        src={data.hero_img}
-                        width={1200} height={600}
-                        className='w-full aspect-video object-cover'
-                        alt={data.hero_attr}
-                    />
+        {/* Image */}
+        <motion.section
+            initial={{opacity: 0, y: 50}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true}}
+            className='mx-auto px-4 max-w-5xl'
+        >
+            <div className='rounded-3xl overflow-hidden'>
+                <Image
+                    src={data.hero_img}
+                    width={1200} height={600}
+                    className='w-full aspect-video object-cover'
+                    alt={data.hero_attr}
+                />
             </div>
             <p className='text-sm pl-4'>{data.hero_attr}</p>
         </motion.section>
@@ -80,7 +80,7 @@ const ArticlePost: FC<{
             </motion.section>
 
             {/* Author */}
-            <section className='max-w-3xl mx-auto bg-nord-5 rounded-4xl py-4 px-3 flex gap-3 my-6'>
+            <section className='max-w-3xl mx-auto bg-card rounded-4xl py-4 px-3 flex gap-3 my-6'>
                 <Image
                     src='/zakdowsett.png'
                     alt='Zak Dowsett'

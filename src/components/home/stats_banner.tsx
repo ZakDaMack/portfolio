@@ -34,7 +34,7 @@ const entries: {
 ]
 
 const StatsBanner: FC = () => (
-    <section id='stats' className='bg-nord-5 p-16 w-full'>
+    <section id='stats' className='bg-nord-5 dark:bg-nord-2 p-8 sm:p-16 w-full'>
         <div className='container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16'>
             {entries.map(e => (
                 <div className="text-center text-nord-10">

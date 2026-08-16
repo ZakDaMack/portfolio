@@ -1,0 +1,37 @@
+---
+title: "Fuel prices, found and visualised."
+subtitle: "A solo-built microservice platform on open government data"
+date: "2026-08-07"
+hero_img: ./fuelfinder_casestudy.jpg
+hero_attr: "The FuelFinder web app"
+published: true
+type: "case-study"
+tags: ["Case Study"]
+case_study:
+  company: "FuelFinder"
+  role: "Creator"
+  skills:
+    - "React"
+    - "Golang"
+    - "gRPC"
+    - "MongoDB"
+    - "Docker"
+    - "Kubernetes"
+  stats:
+    - value: 15
+      suffix: " min"
+      subtext: "from pump to page"
+    - value: 1
+      subtext: "engineer, end to end"
+    - suffix: "24/7"
+      subtext: "highly available on Kubernetes"
+  problem: "UK fuel stations publish their prices as open data a pile of CSVs in different shapes, useful to nobody. I wanted the help concious consumers find where's the cheapest fuel nearest to them, and learn how to run a production-grade microservice stack solo, end to end."
+  decisions:
+    - title: "Small services, speaking gRPC"
+      description: "Go microservices communicate over gRPC, with a thin REST gateway for the browser and rate limiting pushed to the reverse proxy. Every piece stays small enough to hold in your head."
+    - title: "Scrape, normalise, index"
+      description: "A scraper polls the published feeds every 15 minutes, normalises the mismatched shapes and indexes station data in PostGIS, making finding the cheapest fuel near you instant."
+    - title: "Kubernetes, even for one"
+      description: "Containerised in Docker and run highly available on Kubernetes. It ships and recovers like a team product."
+  outcome: "A live site that always knows the cheapest fuel nearby, refreshed every 15 minutes, with a mobile-first React frontend and powered by Go. Every layer, built and run by one person."
+---

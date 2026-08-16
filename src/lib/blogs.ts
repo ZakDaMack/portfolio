@@ -87,6 +87,11 @@ export async function getAllBlogs(): Promise<Blog[]> {
   return entries.filter(b => b.published);
 }
 
+export async function getLatestCaseStudies(): Promise<Blog[]> {
+  const blogs = await getAllBlogs();
+  return blogs.filter(b => b.type == BlogType.CaseStudy).slice(0, 2)
+}
+
 export async function getTags(): Promise<string[]> {
   const blogs = await getAllBlogs();
   const tags = Array.from(new Set(blogs.flatMap(b => b.tags)));
