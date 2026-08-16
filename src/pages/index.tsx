@@ -1,11 +1,9 @@
 import { FC } from "react";
 
-import { getAllBlogs, getLatestCaseStudies } from "@/lib/blogs";
-import { getAllItems } from "@/lib/portfolio";
+import { getLatestCaseStudies } from "@/lib/blogs";
 
 import Blog from "@/interfaces/blog";
 import { GetStaticProps } from "next";
-import Portfolio from "@/interfaces/portfolio";
 
 import Head from "next/head";
 import About from "@/components/home/about";
@@ -15,11 +13,10 @@ import WorkGrid from "@/components/home/work_grid";
 import StatsBanner from "@/components/home/stats_banner";
 
 interface _HomeProps {
-  portfolioData: Portfolio[];
   caseStudies: Blog[];
 }
 
-const Home: FC<_HomeProps> = ({ portfolioData, caseStudies }) => {
+const Home: FC<_HomeProps> = ({ caseStudies }) => {
   return (
     <RootLayout headerClassName="[&.header-unblurred_a]:text-nord-6!">
       <Head>
@@ -34,12 +31,6 @@ const Home: FC<_HomeProps> = ({ portfolioData, caseStudies }) => {
 }
 
 const getStaticProps: GetStaticProps<_HomeProps> = async () => {
-  // Get external data from the file system
-  const portfolioData = await getAllItems()
-  portfolioData.sort((a, b) => {
-    return new Date(b.start_date).getTime() - new Date(a.start_date).getTime();
-  });
-
   const caseStudies = await getLatestCaseStudies();
   caseStudies.forEach(b => {
     b.id = `/blog/${b.id}`;
@@ -52,7 +43,6 @@ const getStaticProps: GetStaticProps<_HomeProps> = async () => {
   //  passed to the `Home` component
   return {
     props: { 
-      portfolioData,
       caseStudies,
     },
   };

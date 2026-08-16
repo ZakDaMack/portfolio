@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import Blog, { BlogType } from '@/interfaces/blog';
 import { GetStaticProps } from 'next';
+import Blog, { BlogType } from '@/interfaces/blog';
 
 import { getBlogData, getMarkdownData, getPaths } from '@/lib/blogs';
 

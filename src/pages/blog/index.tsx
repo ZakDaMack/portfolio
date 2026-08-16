@@ -3,16 +3,13 @@ import { FC, useMemo, useState } from 'react';
 import Blog from '@/interfaces/blog';
 import { GetStaticProps } from 'next';
 
+import { cn } from '@/lib/utils';
 import { getAllBlogs, getTags } from '@/lib/blogs';
 
 import Head from 'next/head';
-import RootLayout from '@/components/layout';
-import BlogPostEntry from '@/components/blog/entry';
-import FeaturedCarousel from '@/components/blog/featured_carousel';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Link from '@/components/link';
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from '@/components/link';
+import RootLayout from '@/components/layout';
 
 interface BlogProps {
   blogs: Blog[];
