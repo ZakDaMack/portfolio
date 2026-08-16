@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 
-import "../app/globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -12,14 +11,12 @@ export default function RootLayout({
   headerClassName?: string;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Header className={headerClassName} />
-        <main className="w-screen max-w-full">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <Header className={headerClassName} />
+      <main className="w-screen max-w-full">
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1fit",
+        "role": "Senior Software Engineer",
+        "company": "1FIT",
+        "dates": "2023 - Present",
+        "link": "https://1fit.com/",
+        "description": "Personal-training software for coaches to help with plan building and client progress tracking for 90k+ users, processing millions of rows of data a day. Introduced CI/CD and containerisation, cutting deployment time 80%; own backend architecture and delivery.",
+        "skills": [
+            "React",
+            "Laravel",
+            "Golang",
+            "AWS",
+            "Flutter",
+            "CI/CD"
+        ]
+    },
+    {
+        "id": "bluesquare",
+        "role": "Development Team Lead",
+        "company": "Bluesquare",
+        "dates": "2021 - 2023",
+        "link": "https://bluesquare.uk.com/",
+        "description": "Custom-built solutions for large brands like Samsung and HP. Full-stack feature work across web front-ends and back-end services, shipping directly with client-facing teams. Agile methodologies improved productivty and ensured goals were met in a rapidly changing work environment.",
+        "skills": [
+            "Vue",
+            "Laravel",
+            "C#",
+            "Lambda",
+            "Leadership",
+            "Solutions Design"
+        ]
+    },
+    {
+        "id": "transalis",
+        "role": "Software Developer",
+        "company": "Transalis",
+        "dates": "2019 - 2021",
+        "link": "https://translis.com/",
+        "description": "B2Bi automation, integration and analytics connecting 98% of the electronically-trading UK retail market. Built and maintained high-volume EDI pipelines where a dropped message meant a missed shipment. Created new data ingresses based on customer requirements.",
+        "skills": [
+            "Java",
+            "NoSQL",
+            "React",
+            "REST/SOAP",
+            "Blockchain"
+        ]
+    },
+    {
+        "id": "peartechnology",
+        "role": "Junior Software Developer",
+        "company": "Pear Technology",
+        "dates": "2017 - 2018",
+        "link": "https://peartechnology.co.uk/",
+        "description": "Geospatial software and mapping tools for land management. First production code, first on-call, first lesson in why backups matter. Working across both greenfield projects and existing web applications for our customers, as well as automations to speed up our internal teams.",
+        "skills": [
+            "C#",
+            "Razor",
+            "WPF",
+            "PostGIS"
+        ]
+    }
+]

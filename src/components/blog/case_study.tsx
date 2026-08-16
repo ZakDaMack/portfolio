@@ -22,7 +22,7 @@ const CaseStudyPost: FC<{ data: Blog }> = ({ data }) => {
   return (
     <RootLayout>
       <Head>
-        <title>Zak Dowsett | {caseStudy.company}</title>
+        <title>{caseStudy.company} | Zak Dowsett</title>
       </Head>
 
       {/* Intro */}
